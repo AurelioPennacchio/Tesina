@@ -13,7 +13,7 @@ class User extends Controller
 
 	public function index() 
 	{
-		header('location: ' . URL . 'gara/selezionaboulder');
+		require APP . 'view/user/home.php';
 	}
-	
+
 }

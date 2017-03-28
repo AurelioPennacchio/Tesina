@@ -23,8 +23,8 @@ class Application
         // check for controller: no controller given ? then load start-page
         if (!$this->url_controller) {
 
-            require APP . 'controller/gara.php';
-            $page = new Gara();
+            require APP . 'controller/user.php';
+            $page = new User();
             $page->index();
 
         } elseif (file_exists(APP . 'controller/' . $this->url_controller . '.php')) {
