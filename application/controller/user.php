@@ -11,9 +11,23 @@
 class User extends Controller
 {
 
+	/**
+	** Funzione che dirige alla pagina principale
+	** dell'user
+	*/
 	public function index() 
 	{
 		require APP . 'view/user/home.php';
+	}
+
+
+	/**
+	** Funzione che dirige alla pagina di registrazione
+	** dell'user
+	*/
+	public function registration()
+	{
+		require APP . 'view/user/registration.php';
 	}
 
 }

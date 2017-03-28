@@ -11,6 +11,10 @@
 class Admin extends Controller
 {
 
+	/**
+	** Funzione che dirige alla pagina principale
+	** dell'admin
+	*/
 	public function index() 
 	{
 		require APP . 'view/admin/index.php';
