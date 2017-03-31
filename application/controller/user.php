@@ -17,9 +17,18 @@ class User extends Controller
 	*/
 	public function index() 
 	{
-		require APP . 'view/user/home.php';
+		header('location:' . URL . 'user/login');
 	}
 
+
+	/**
+	** Funzione che dirige alla pagina di login
+	*/
+	public function login()
+	{
+		$title = 'Login page';
+		require APP . 'view/user/login.php';
+	}
 
 	/**
 	** Funzione che dirige alla pagina di registrazione
@@ -27,7 +36,25 @@ class User extends Controller
 	*/
 	public function registration()
 	{
+		$title = 'Registration page';
 		require APP . 'view/user/registration.php';
+	}
+
+	/**
+	** Funzione che permette di registrarsi
+	*/
+	public function register()
+	{
+		require APP . 'view/user/registra.php';
+	}
+
+	/**
+	** Funzione che dirige alla pagina home
+	*/
+	public function home()
+	{
+		$title = 'Home';
+		require APP . 'view/user/home.php';
 	}
 
 }

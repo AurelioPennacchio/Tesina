@@ -17,6 +17,16 @@ class Admin extends Controller
 	*/
 	public function index() 
 	{
+		$title = 'Login page';
+		require APP . 'view/admin/login.php';
+	}
+
+	/**
+	**
+	*/
+	public function home()
+	{
+		$title = 'Home';
 		require APP . 'view/admin/index.php';
 	}
 
