@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title><?php echo $title; ?></title>
+	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
 	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/style.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/grids-responsive-min.css">
@@ -22,6 +23,9 @@
 		</form>
 		<a href="<?php echo URL; ?>/user/index">Login page</a>
 	</div>
+	<div id="prova">
+		
+	</div>
 	<script type="text/javascript">
 
 		$('#form_registrazione').submit(function(e) {
@@ -35,7 +39,10 @@
 				dataType: 'html'
 			})
 			.done(function(data) {
-
+				console.log('Fatto tutto');
+				$('#prova').fadeOut('slow', function() {
+					$('#prova').fadeIn('slow').html(data);
+				});
 			})
 			.fail(function(){
 				alert('Failed');
