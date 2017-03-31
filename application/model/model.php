@@ -31,7 +31,7 @@ class Model
 	public function findUser($email, $password)
 	{
 		$sql = "SELECT * FROM user WHERE email=:email AND password=:password";
-		$query = $this->db->preapre($sql);
+		$query = $this->db->prepare($sql);
 		$parameters = array(':email'=>$email, ':password'=>$password);
 		$query->execute($parameters);
 		return $query->fetch();
@@ -44,7 +44,7 @@ class Model
 	{
 		$sql = 'INSERT INTO user (nome, cognome, data_nascita, email, password)
 		VALUES (:nome, :cognome, :data_nascita, :email, :password)';
-		$query = $this->db->preapre($sql);
+		$query = $this->db->prepare($sql);
 		$parameters = array(':nome'=>$nome, ':cognome'=>$cognome, ':data_nascita'=>$data_nascita,
 			':email'=>$email,':password'=>$password);
 		$query->execute($parameters);
