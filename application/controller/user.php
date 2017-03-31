@@ -26,6 +26,21 @@ class User extends Controller
 	*/
 	public function login()
 	{
+		session_start();
+		if(isset($_SESSION['id'])){
+			
+		}
+		if(isset($_POST['email']) && isset($_POST['password'])){
+			$result = $this->model->findUser($_POST['email'], $_POST['password']);
+			//funziona con le cose che ritorna
+			if($result == false){
+				
+			}
+			else{
+				$_SESSION['id'] = $result->id;
+				header('location:' . URL . 'user/home');
+			}
+		}
 		$title = 'Login page';
 		require APP . 'view/user/login.php';
 	}
