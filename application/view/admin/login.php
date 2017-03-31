@@ -9,12 +9,12 @@
 </head>
 <body>
 	<div class="container">
-		<form class="pure-form contenitore">
+		<form class="pure-form contenitore" method="POST" action="">
 		    <fieldset class="pure-group">
 		    	<input type="text" class="pure-input-1-2" placeholder="Email" name="emai">
 		        <input type="text" class="pure-input-1-2" placeholder="Password" name="password">
 		    </fieldset>
-		    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Login</button>
+		    <button type="submit" class="pure-button pure-input-1-2 pure-button-primary" name="login">Login</button>
 		    <br>
 		</form>
 	</div>
