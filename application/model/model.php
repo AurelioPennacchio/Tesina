@@ -38,6 +38,18 @@ class Model
 	}
 
 	/**
+	** Funzione che permette di trovare un admin
+	*/
+	public function findAdmin($email, $password)
+	{
+		$sql = "SELECT * FROM admin WHERE email=:email AND password=:password";
+		$query = $this->db->prepare($sql);
+		$parameters = array(':email'=>$email, ':password'=>$password);
+		$query->execute($parameters);
+		return $query->fetch();
+	}
+
+	/**
 	** Funzione che permette di aggiungere un user
 	*/
 	public function addUser($nome, $cognome, $data_nascita, $email, $password)
