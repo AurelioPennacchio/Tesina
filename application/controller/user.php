@@ -28,7 +28,7 @@ class User extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id'])){
-			
+			header('location:' . URL . 'user/home');
 		}
 		if(isset($_POST['email']) && isset($_POST['password'])){
 			$result = $this->model->findUser($_POST['email'], $_POST['password']);
@@ -46,13 +46,30 @@ class User extends Controller
 	}
 
 	/**
+	** Funzione che permette di fare il logout
+	*/
+	public function logout()
+	{
+		session_start();
+		session_unset();
+		session_destroy();
+		header('location:' . URL . 'user/login');
+	}
+
+	/**
 	** Funzione che dirige alla pagina di registrazione
 	** dell'user
 	*/
 	public function registration()
 	{
-		$title = 'Registration page';
-		require APP . 'view/user/registration.php';
+		session_start();
+		if(isset($_SESSION['id'])){
+			header('location:' . URL . 'user/home');
+		}
+		else{
+			$title = 'Registration page';
+			require APP . 'view/user/registration.php';
+		}
 	}
 
 	/**
@@ -68,8 +85,15 @@ class User extends Controller
 	*/
 	public function home()
 	{
-		$title = 'Home';
-		require APP . 'view/user/home.php';
+		session_start();
+		if(isset($_SESSION['id'])){
+			$title = 'Home';
+			require APP . 'view/user/home.php';
+		}
+		else{
+			header('location:' . URL . 'user/login');
+		}
+		
 	}
 
 }
