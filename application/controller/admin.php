@@ -24,10 +24,44 @@ class Admin extends Controller
 	/**
 	**
 	*/
+	public function login()
+	{
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+			header('location:': . URL . 'admin/home')
+		}
+		if(isset($_POST['password']) && isset($_POST['email'])){
+
+		}
+		$title = 'Login page';
+		require APP . 'view/admin/login.php';
+	}
+
+	/*
+	**
+	*/
+	public function logout()
+	{
+		session_start();
+		session_unset();
+		session_destroy();
+		header('location:' . URL . 'admin/login');
+	}
+
+	/**
+	** Funzione che permette di andare alla pagina home
+	*/
 	public function home()
 	{
-		$title = 'Home';
-		require APP . 'view/admin/index.php';
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+			$title = 'Home';
+			require APP . 'view/admin/home.php';
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
+		
 	}
 
 }
