@@ -17,8 +17,7 @@ class Admin extends Controller
 	*/
 	public function index() 
 	{
-		$title = 'Login page';
-		require APP . 'view/admin/login.php';
+		header('location:' . URL . 'admin/login');
 	}
 
 	/**
@@ -28,10 +27,17 @@ class Admin extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id_admin'])){
-			header('location:': . URL . 'admin/home')
+			header('location:' . URL . 'admin/home');
 		}
-		if(isset($_POST['password']) && isset($_POST['email'])){
+		if(isset($_POST['password_admin']) && isset($_POST['email_admin'])){
+			$result = $this->model->findAdmin($_POST['email_admin'], $_POST['password_admin']);
+			if($result == false){
 
+			}
+			else{
+				$_SESSION['id_admin'] = $result->id;
+				header('location:' . URL . 'admin/home');
+			}
 		}
 		$title = 'Login page';
 		require APP . 'view/admin/login.php';
