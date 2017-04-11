@@ -21,7 +21,7 @@ class Admin extends Controller
 	}
 
 	/**
-	**
+	** Funzione che permette di fare il login
 	*/
 	public function login()
 	{
@@ -44,7 +44,7 @@ class Admin extends Controller
 	}
 
 	/*
-	**
+	** Funzione che permette di fare il logout
 	*/
 	public function logout()
 	{
