@@ -93,7 +93,21 @@ class User extends Controller
 		else{
 			header('location:' . URL . 'user/login');
 		}
-		
+	}
+
+	/**
+	**
+	*/
+	public function verify()
+	{
+		session_start();
+		if(isset($_SESSION['id'])){
+			$title = 'Home';
+			require APP . 'view/user/home.php'
+		}
+		else{
+			require APP . 'view/user/verify.php';
+		}
 	}
 
 }
