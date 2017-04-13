@@ -43,3 +43,6 @@ CREATE TABLE categoria
 
 INSERT INTO user (email,password)
 VALUES ('aurelio99819@gmail.com','balotelli45');
+
+
+
