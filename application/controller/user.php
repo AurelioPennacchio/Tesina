@@ -96,18 +96,27 @@ class User extends Controller
 	}
 
 	/**
-	**
+	** Funzione che permette di verificare l'account
 	*/
 	public function verify()
 	{
 		session_start();
 		if(isset($_SESSION['id'])){
 			$title = 'Home';
-			require APP . 'view/user/home.php'
+			require APP . 'view/user/home.php';
 		}
 		else{
 			require APP . 'view/user/verify.php';
 		}
+	}
+
+	/**
+	** Funzione che permette di svolgere i test
+	** dei metodi presenti nel model
+	*/
+	public function test()
+	{
+		require APP . 'view/user/test.php';
 	}
 
 }
