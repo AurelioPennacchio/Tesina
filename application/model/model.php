@@ -50,6 +50,19 @@ class Model
 	}
 
 	/**
+	** Funzione che permette di trovare un id
+	** data una email
+	*/
+	public function findId($email)
+	{
+		$sql = 'SELECT id FROM user WHERE email= :email';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':email'=>$email);
+		$query->execute($parameters);
+		return $query->fetch();
+	}
+
+	/**
 	** Funzione che permette di aggiungere un user
 	*/
 	public function addUser($nome, $cognome, $data_nascita, $email, $password)
@@ -60,5 +73,14 @@ class Model
 		$parameters = array(':nome'=>$nome, ':cognome'=>$cognome, ':data_nascita'=>$data_nascita,
 			':email'=>$email,':password'=>$password);
 		$query->execute($parameters);
+
+		/*
+		$sql = 'INSERT INTO user (email, password)
+			VALUES (:email,:password)';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':email'=>$email,':password'=>$password);
+		$query->execute($parameters);
+		$id_utente = findId($email);
+		*/
 	}
 }
