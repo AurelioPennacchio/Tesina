@@ -85,4 +85,31 @@ class Model
 		$query->execute($parameters);
 		return true;
 	}
+
+	/**
+	** Funzione che permette di aggiungere cibo
+	** nel database
+	*/
+	public function addCibo()
+	{
+
+	}
+
+	/**
+	** Funzione che permette di eliminare cibo
+	** nel database
+	*/
+	public function deleteCibo()
+	{
+
+	}
+
+	/**
+	** Funzione che permette di vedere 
+	** tutte le prenotazioni effettuate
+	*/
+	public function vediPrenotazioni()
+	{
+
+	}
 }
