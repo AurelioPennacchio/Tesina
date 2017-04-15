@@ -69,4 +69,50 @@ class Admin extends Controller
 		}
 	}
 
+	/**
+	** Funzione che permette all'admin di 
+	** andare nella pagina di inserimento del cibo
+	*/
+	public function aggiungiCibo()
+	{
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
+	}
+
+	/**
+	** Funzione che permette all'admin 
+	** di andare nella pagina di eliminazione del cibo
+	*/
+	public function eliminaCibo()
+	{
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
+	}
+
+	/**
+	** Funzione che permette all'admin
+	** di andare nella pagina dove può
+	** vedere tutte le prenotazioni
+	*/
+	public function vediPrenotazioni()
+	{
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
+	}
+
 }
