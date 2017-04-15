@@ -62,7 +62,8 @@ class Admin extends Controller
 		session_start();
 		if(isset($_SESSION['id_admin'])){
 			$title = 'Home';
-			require APP . 'view/admin/home.php';
+			//require APP . 'view/admin/home.php';
+			header('location:' . URL . 'admin/aggiungiCibo');
 		}
 		else{
 			header('location:' . URL . 'admin/index');
@@ -77,7 +78,8 @@ class Admin extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id_admin'])){
-
+			require APP . 'view/admin/menu.php';
+			require APP . 'view/admin/aggiungi_cibo.php';
 		}
 		else{
 			header('location:' . URL . 'admin/index');
@@ -92,7 +94,8 @@ class Admin extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id_admin'])){
-
+			require APP . 'view/admin/menu.php';
+			require APP . 'view/admin/elimina_cibo.php';
 		}
 		else{
 			header('location:' . URL . 'admin/index');
@@ -108,7 +111,8 @@ class Admin extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id_admin'])){
-
+			require APP . 'view/admin/menu.php';
+			require APP . 'view/admin/vedi_prenotazioni.php';
 		}
 		else{
 			header('location:' . URL . 'admin/index');
