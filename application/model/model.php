@@ -28,11 +28,11 @@ class Model
 	/**
 	** Funzione che permette di trovare un user
 	*/
-	public function findUser($email, $password)
+	public function findUser($email)
 	{
-		$sql = "SELECT * FROM user WHERE email=:email AND password=:password";
+		$sql = "SELECT * FROM user WHERE email=:email";
 		$query = $this->db->prepare($sql);
-		$parameters = array(':email'=>$email, ':password'=>$password);
+		$parameters = array(':email'=>$email);
 		$query->execute($parameters);
 		return $query->fetch();
 	}
@@ -76,6 +76,9 @@ class Model
 		$query->execute($parameters);
 		*/
 		
+		if($this->findUser($email)!=false){
+			return false;
+		}
 		$sql = 'INSERT INTO user (email, password)
 			VALUES (:email,:password)';
 		$query = $this->db->prepare($sql);
@@ -89,5 +92,6 @@ class Model
 		$parameters = array(':id_utente'=>$id_utente, ':nome'=>$nome, ':cognome'=>$cognome,
 			':data_nascita'=>$data_nascita);
 		$query->execute($parameters);
+		return true;
 	}
 }
