@@ -67,7 +67,6 @@ class Admin extends Controller
 		else{
 			header('location:' . URL . 'admin/index');
 		}
-		
 	}
 
 }
