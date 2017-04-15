@@ -67,20 +67,27 @@ class Model
 	*/
 	public function addUser($nome, $cognome, $data_nascita, $email, $password)
 	{
+		/*
 		$sql = 'INSERT INTO user (nome, cognome, data_nascita, email, password)
 		VALUES (:nome, :cognome, :data_nascita, :email, :password)';
 		$query = $this->db->prepare($sql);
 		$parameters = array(':nome'=>$nome, ':cognome'=>$cognome, ':data_nascita'=>$data_nascita,
 			':email'=>$email,':password'=>$password);
 		$query->execute($parameters);
-
-		/*
+		*/
+		
 		$sql = 'INSERT INTO user (email, password)
 			VALUES (:email,:password)';
 		$query = $this->db->prepare($sql);
 		$parameters = array(':email'=>$email,':password'=>$password);
 		$query->execute($parameters);
-		$id_utente = findId($email);
-		*/
+		$id_utente_first = $this->findId($email);
+		$id_utente = $id_utente_first->id;
+		$sql = 'INSERT INTO informazioni (id_utente, nome, cognome, data_nascita)
+			VALUES (:id_utente, :nome, :cognome, :data_nascita)';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id_utente'=>$id_utente, ':nome'=>$nome, ':cognome'=>$cognome,
+			':data_nascita'=>$data_nascita);
+		$query->execute($parameters);
 	}
 }
