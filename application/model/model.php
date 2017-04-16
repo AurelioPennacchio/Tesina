@@ -96,11 +96,12 @@ class Model
 	}
 
 	/**
-	**
+	** Funzione che permette di prendere tutto il cibo
+	** dal database
 	*/
 	public function getAllCibo()
 	{
-		
+
 	}
 
 	/**
