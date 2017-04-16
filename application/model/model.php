@@ -96,6 +96,14 @@ class Model
 	}
 
 	/**
+	**
+	*/
+	public function getAllCibo()
+	{
+		
+	}
+
+	/**
 	** Funzione che permette di eliminare cibo
 	** nel database
 	*/
