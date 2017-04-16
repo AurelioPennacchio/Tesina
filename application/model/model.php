@@ -105,6 +105,15 @@ class Model
 	}
 
 	/**
+	** Funzione che permette di prendere le categorie
+	** dal database
+	*/
+	public function getAllCategorie()
+	{
+
+	}
+
+	/**
 	** Funzione che permette di eliminare cibo
 	** nel database
 	*/
