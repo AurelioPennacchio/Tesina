@@ -110,7 +110,7 @@ class Model
 	*/
 	public function getAllCategorie()
 	{
-		$sql = '';
+		$sql = 'SELECT * FROM categoria';
 		$query = $this->db->prepare($sql);
 		$query->execute();
 		return $query->fetchAll();
