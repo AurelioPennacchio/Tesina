@@ -101,7 +101,12 @@ class Model
 	*/
 	public function getAllCibo()
 	{
-
+		$sql = 'SELECT cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
+					FROM cibo, categoria
+					WHERE cibo.id_categoria = categoria.id';
+		$query = $this->db->prepare($sql);
+		$query->execute();
+		return $query->fetchAll();
 	}
 
 	/**
