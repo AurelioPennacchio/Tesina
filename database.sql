@@ -42,9 +42,22 @@ INSERT INTO categoria (nome) VALUES ('Secondo piatto');
 INSERT INTO categoria (nome) VALUES ('Bibita');
 
 INSERT INTO cibo (nome, descrizione, id_categoria) 
-VALUES ('Risotto allo zafferano','Risotto allo zafferano');
+VALUES ('Risotto allo zafferano','Risotto allo zafferano',1);
 
+INSERT INTO cibo (nome, descrizione, id_categoria) 
+VALUES ('Risotto ai funghi','Risotto ai funghi',1);
 
+INSERT INTO cibo (nome, descrizione, id_categoria) 
+VALUES ('Grigliata','Grigliata',2);
+
+INSERT INTO cibo (nome, descrizione, id_categoria) 
+VALUES ('Costata','Costata',2);
+
+INSERT INTO cibo (nome, descrizione, id_categoria) 
+VALUES ('Acqua naturale 75cl','Acqua naturale 75cl',3);
+
+INSERT INTO cibo (nome, descrizione, id_categoria) 
+VALUES ('Acqua frizzante 75cl','Acqua frizzante 75cl',3);
 
 
 
