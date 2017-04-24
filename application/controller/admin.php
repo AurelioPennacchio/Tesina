@@ -123,7 +123,7 @@ class Admin extends Controller
 	*/
 	public function test()
 	{
-
+		require APP . 'view/admin/test.php';
 	}
 
 }
