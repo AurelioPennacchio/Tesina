@@ -110,6 +110,20 @@ class Model
 	}
 
 	/**
+	** Funzione che permette di prendere tutte le bibite
+	** nel database
+	*/
+	public function getAllBibite()
+	{
+		$sql = 'SELECT cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
+					FROM cibo, categoria
+					WHERE cibo.id_categoria = categoria.id AND categoria.id = 3';
+		$query = $this->db->prepare($sql);
+		$query->execute();
+		return $query->fetchAll();
+	}
+
+	/**
 	** Funzione che permette di prendere le categorie
 	** dal database
 	*/
