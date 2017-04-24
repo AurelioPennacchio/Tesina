@@ -103,7 +103,7 @@ class Model
 	{
 		$sql = 'SELECT cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
 					FROM cibo, categoria
-					WHERE cibo.id_categoria = categoria.id';
+					WHERE cibo.id_categoria = categoria.id AND (categoria.id = 1 OR categoria.id = 2)';
 		$query = $this->db->prepare($sql);
 		$query->execute();
 		return $query->fetchAll();
