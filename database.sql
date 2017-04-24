@@ -41,6 +41,9 @@ INSERT INTO categoria (nome) VALUES ('Primo piatto');
 INSERT INTO categoria (nome) VALUES ('Secondo piatto');
 INSERT INTO categoria (nome) VALUES ('Bibita');
 
+INSERT INTO cibo (nome, descrizione, id_categoria) 
+VALUES ('Risotto allo zafferano','Risotto allo zafferano');
+
 
 
 
