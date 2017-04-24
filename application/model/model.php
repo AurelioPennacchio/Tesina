@@ -90,9 +90,13 @@ class Model
 	** Funzione che permette di aggiungere cibo
 	** nel database
 	*/
-	public function addCibo()
+	public function addCibo($nome, $descrizione, $id_categoria)
 	{
-
+		$sql = 'INSERT INTO cibo (nome, descrizione, id_categoria) 
+				VALUES (:nome, :descrizione, :id_categoria)';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':nome'=>$nome, ':descrizione'=>$descrizione, ':id_categoria'=>$id_categoria);
+		$query->execute($parameters);
 	}
 
 	/**
