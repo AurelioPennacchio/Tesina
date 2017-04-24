@@ -62,7 +62,6 @@ class Admin extends Controller
 		session_start();
 		if(isset($_SESSION['id_admin'])){
 			$title = 'Home';
-			//require APP . 'view/admin/home.php';
 			header('location:' . URL . 'admin/aggiungiCibo');
 		}
 		else{
@@ -117,6 +116,14 @@ class Admin extends Controller
 		else{
 			header('location:' . URL . 'admin/index');
 		}
+	}
+
+	/**
+	** Funzione che aggiunge pagina di test per l'admin
+	*/
+	public function test()
+	{
+
 	}
 
 }
