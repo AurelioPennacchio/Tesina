@@ -37,6 +37,10 @@ CREATE TABLE categoria
 	nome VARCHAR(30) NOT NULL
 );
 
+INSERT INTO categoria (nome) VALUES ('Primo piatto');
+INSERT INTO categoria (nome) VALUES ('Secondo piatto');
+INSERT INTO categoria (nome) VALUES ('Bibita');
+
 
 
 
