@@ -28,11 +28,11 @@ class Model
 	/**
 	** Funzione che permette di trovare un user
 	*/
-	public function findUser($email)
+	public function findUser($email, $password)
 	{
-		$sql = "SELECT * FROM user WHERE email=:email";
+		$sql = "SELECT * FROM user WHERE email=:email AND password=:password";
 		$query = $this->db->prepare($sql);
-		$parameters = array(':email'=>$email);
+		$parameters = array(':email'=>$email,':password'=>$password);
 		$query->execute($parameters);
 		return $query->fetch();
 	}
