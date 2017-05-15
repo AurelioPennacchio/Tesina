@@ -106,6 +106,10 @@ class User extends Controller
 		if(isset($_SESSION['id'])){
 			$title = 'Prenotazioni';
 			require APP . 'view/user/menu.php';
+			require APP . 'view/user/prenotazioni.php';
+		}
+		else{
+			header('location:' . URL . 'user/login');
 		}
 	}
 
