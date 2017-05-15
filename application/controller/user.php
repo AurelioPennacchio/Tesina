@@ -97,6 +97,15 @@ class User extends Controller
 	}
 
 	/**
+	** Funzione che permette ad un utente di 
+	** di vedere le proprie prenotazioni nel tempo
+	*/
+	public function vediPrenotazioni()
+	{
+
+	}
+
+	/**
 	** Funzione che permette di verificare l'account
 	*/
 	public function verify()

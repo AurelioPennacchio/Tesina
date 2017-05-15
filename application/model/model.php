@@ -152,7 +152,16 @@ class Model
 	** Funzione che permette di vedere 
 	** tutte le prenotazioni effettuate
 	*/
-	public function vediPrenotazioni()
+	public function vediPrenotazioniAdmin()
+	{
+
+	}
+
+	/**
+	** Funzione che permette di vedere 
+	** tutte le prenotazioni effettuate
+	*/
+	public function vediPrenotazioniUtente()
 	{
 
 	}
