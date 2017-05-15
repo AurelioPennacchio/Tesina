@@ -31,7 +31,7 @@ class User extends Controller
 			header('location:' . URL . 'user/home');
 		}
 		if(isset($_POST['email']) && isset($_POST['password'])){
-			$result = $this->model->findUser($_POST['email']);
+			$result = $this->model->findUser($_POST['email'], $_POST['password']);
 			//funziona con le cose che ritorna
 			if($result == false){
 				$info = 'Utente non registrato o dati inseriti errati';
