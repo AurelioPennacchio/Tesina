@@ -88,6 +88,7 @@ class User extends Controller
 		session_start();
 		if(isset($_SESSION['id'])){
 			$title = 'Home';
+			require APP . 'view/user/menu.php';
 			require APP . 'view/user/home.php';
 		}
 		else{
