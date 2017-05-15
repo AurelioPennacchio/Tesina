@@ -37,6 +37,20 @@ CREATE TABLE categoria
 	nome VARCHAR(30) NOT NULL
 );
 
+CREATE TABLE prenotazioni
+(
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+	data_prenotazione DATE NOT NULL,
+	id_utente INT UNSIGNED, 
+	id_primo_piatto INT UNSIGNED, 
+	id_secondo_piatto INT UNSIGNED, 
+	id_bibita INT UNSIGNED,
+	FOREIGN KEY (id_utente) REFERENCES user(id) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (id_primo_piatto) REFERENCES cibo(id) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (id_secondo_piatto) REFERENCES cibo(id) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (id_bibita) REFERENCES cibo(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
 INSERT INTO categoria (nome) VALUES ('Primo piatto');
 INSERT INTO categoria (nome) VALUES ('Secondo piatto');
 INSERT INTO categoria (nome) VALUES ('Bibita');
