@@ -102,7 +102,11 @@ class User extends Controller
 	*/
 	public function vediPrenotazioni()
 	{
-
+		session_start();
+		if(isset($_SESSION['id'])){
+			$title = 'Prenotazioni';
+			require APP . 'view/user/menu.php';
+		}
 	}
 
 	/**
@@ -112,8 +116,7 @@ class User extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id'])){
-			$title = 'Home';
-			require APP . 'view/user/home.php';
+			header('location:' . URL . 'user/home');
 		}
 		else{
 			require APP . 'view/user/verify.php';
