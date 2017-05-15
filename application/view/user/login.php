@@ -1,3 +1,6 @@
+<?php 
+	header('Cache-Control: no cache');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +38,6 @@
 				}
 			?>
 		</form>
-		
 	</div>
 </body>
 </html>
