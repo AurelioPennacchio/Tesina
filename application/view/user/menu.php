@@ -26,7 +26,7 @@
 
             <ul class="pure-menu-list">
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">About</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Vedi prenotazioni</a></li>
                 <li class="pure-menu-item"><a href="<?php echo URL; ?>user/logout" class="pure-menu-link">Logout</a></li>
             </ul>
         </div>
