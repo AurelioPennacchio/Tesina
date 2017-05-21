@@ -29,8 +29,15 @@ class Model
 	** Funzione che permette di prendere 
 	** le info di uno user
 	*/
-	public function getUserInfo($id){
-
+	public function getUserInfo($id)
+	{
+		$sql = 'SELECT user.email, informazioni.nome, informazioni.cognome, informazioni.data_nascita
+			FROM user, informazioni 
+			WHERE user.id = informazioni.id_utente AND user.id = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id'=>$id);
+		$query->execute($parameters);
+		return $query->fetch();
 	}
 
 	/**
