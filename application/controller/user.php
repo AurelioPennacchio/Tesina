@@ -114,7 +114,8 @@ class User extends Controller
 	}
 
 	/**
-	**
+	** Funzione che dirige sulla pagina 
+	** delle informazioni dello user
 	*/
 	public function vediInformazioni()
 	{
