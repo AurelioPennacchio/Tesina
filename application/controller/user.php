@@ -37,6 +37,8 @@ class User extends Controller
 				$info = 'Utente non registrato o dati inseriti errati';
 			}
 			else{
+				$info = $this->model->getUserInfo($result->id);
+				$_SESSION['nome'] = $info->nome;
 				$_SESSION['id'] = $result->id;
 				header('location:' . URL . 'user/home');
 			}
