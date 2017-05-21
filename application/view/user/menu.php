@@ -19,7 +19,7 @@
     </a>
     <div id="menu">
         <div class="pure-menu">
-            <a class="pure-menu-heading" href="#">Company</a>
+            <a class="pure-menu-heading" href="#"> <?php echo $_SESSION['id']; ?> </a>
             <ul class="pure-menu-list">
                 <li class="pure-menu-item"><a href="<?php echo URL; ?>user/home" class="pure-menu-link">Prenota</a></li>
                 <li class="pure-menu-item"><a href="<?php echo URL; ?>user/vediPrenotazioni" class="pure-menu-link">Vedi prenotazioni</a></li>
