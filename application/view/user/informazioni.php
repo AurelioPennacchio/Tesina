@@ -1,5 +1,6 @@
 
-			
+			<br>
+			<br>
 			<div>
 				<h1>Ecco tutte le informazioni</h1>
 				<p>Nome: <?php echo $informazioni->nome; ?></p>
