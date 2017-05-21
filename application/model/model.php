@@ -26,6 +26,14 @@ class Model
 	}
 
 	/**
+	** Funzione che permette di prendere 
+	** le info di uno user
+	*/
+	public function getUserInfo($id){
+
+	}
+
+	/**
 	** Funzione che permette di trovare un user
 	*/
 	public function findUser($email, $password)
