@@ -114,6 +114,22 @@ class User extends Controller
 	}
 
 	/**
+	**
+	*/
+	public function vediInformazioni()
+	{
+		session_start();
+		if(isset($_SESSION['id'])){
+			$title = 'Informazioni';
+			require APP . 'view/user/menu.php';
+			require APP . 'view/user/informazioni.php';
+		}
+		else{
+			header('location:' . URL . 'user/login');
+		}
+	}
+
+	/**
 	** Funzione che permette di verificare l'account
 	*/
 	public function verify()
