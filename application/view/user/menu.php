@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="<?php echo URL; ?>css/grids-responsive-min.css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/font-awesome/css/font-awesome.min.css" type="text/css">
 	<link rel="stylesheet" href="<?php echo URL; ?>css/side-menu.css">
-
 </head>
 <body>
 <div id="layout">
