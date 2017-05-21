@@ -67,7 +67,7 @@ class Model
 	*/
 	public function addUser($nome, $cognome, $data_nascita, $email, $password)
 	{
-		if($this->findUser($email)!=false){
+		if($this->findUser($email,$password)!=false){
 			return false;
 		}
 		$sql = 'INSERT INTO user (email, password)
