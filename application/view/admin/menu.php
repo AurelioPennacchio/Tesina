@@ -14,16 +14,16 @@
 				<a href="#!" class="brand-logo">Admin</a>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul class="right hide-on-med-and-down">
-			    	<li><a href="<?php echo URL; ?>admin/vediPrenotazioni">Prenotazioni</a></li>
-			    	<li><a href="#">Statistiche</a></li>
-			    	<li><a href="#">Cibo</a></li>
-			    	<li><a href="<?php echo URL; ?>admin/logout">Logout</a></li>
+			    	<li><a href="<?php echo URL; ?>admin/vediPrenotazioni"><i class="material-icons left">assignment</i>Prenotazioni</a></li>
+			    	<li><a href="#"><i class="material-icons left">show_chart</i>Statistiche</a></li>
+			    	<li><a href="#"><i class="material-icons left">restaurant</i>Cibo</a></li>
+			    	<li><a href="<?php echo URL; ?>admin/logout"><i class="material-icons left">input</i>Logout</a></li>
 			    </ul>
 			    <ul class="side-nav" id="mobile-demo">
-			    	<li><a href="<?php echo URL; ?>admin/vediPrenotazioni">Prenotazioni</a></li>
-			    	<li><a href="#">Statistiche</a></li>
-			    	<li><a href="#">Cibo</a></li>
-			    	<li><a href="<?php echo URL; ?>admin/logout"</a></li>
+			    	<li><a href="<?php echo URL; ?>admin/vediPrenotazioni"><i class="material-icons left">assignment</i>Prenotazioni</a></li>
+			    	<li><a href="#"><i class="material-icons left">show_chart</i>Statistiche</a></li>
+			    	<li><a href="#"><i class="material-icons left">restaurant</i>Cibo</a></li>
+			    	<li><a href="<?php echo URL; ?>admin/logout"><i class="material-icons left">input</i>Logout</a></li>
 			    </ul>
 			</div>
 		</nav>
