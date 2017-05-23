@@ -90,6 +90,9 @@ class User extends Controller
 		session_start();
 		if(isset($_SESSION['id'])){
 			$title = 'Home';
+			$primi_piatti = $this->model->getAllPrimiPiatti();
+			$secondi_piatti = $this->model->getAllSecondiPiatti();
+			$bibite = $this->model->getAllBibite();
 			require APP . 'view/user/menu.php';
 			require APP . 'view/user/home.php';
 		}
@@ -153,6 +156,9 @@ class User extends Controller
 	*/
 	public function test()
 	{
+		$primi_piatti = $this->model->getAllPrimiPiatti();
+		$secondi_piatti = $this->model->getAllSecondiPiatti();
+		$bibite = $this->model->getAllBibite();
 		require APP . 'view/user/test.php';
 	}
 
