@@ -27,13 +27,14 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col s6">
+				<div class="col s6 offset-s4">
 					<button class="btn waves-effect waves-light" type="submit" name="login">Login</button>
 				</div>
-				<div class="col s6">
+			</div>
+			<div class="row">
+				<div class="col s12 offset-s1">
 					<a class="waves-effect waves-light btn" href="<?php echo URL; ?>user/registration">Non registrato? Clicca qui</a>
 				</div>
-				
 			</div>
 			<?php 
 				if(isset($info)){
