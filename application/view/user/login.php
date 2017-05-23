@@ -39,7 +39,9 @@
 			<?php 
 				if(isset($info)){
 					echo "<div class=\"row\">";
+					echo "<div class=\"col s12\">";
 					echo "<a class=\"waves-effect waves-light btn\">$info</a>";
+					echo "</div>";
 					echo "</div>";
 				}
 			?>
