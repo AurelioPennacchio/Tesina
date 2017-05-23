@@ -77,7 +77,6 @@ class Admin extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id_admin'])){
-			//require APP . 'view/admin/prova.php';
 			require APP . 'view/admin/menu.php';
 			require APP . 'view/admin/aggiungi_cibo.php';
 		}
