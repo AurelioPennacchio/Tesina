@@ -4,5 +4,5 @@
 	$email = $_POST['email'];
 	$data_nascita = $_POST['data_nascita'];
 	$password = $_POST['password'];
-	$this->model->addUser($nome, $cognome, $data_nascita, $email, $password);
+	$temp = $this->model->addUser($nome, $cognome, $data_nascita, $email, $password);
 ?>
