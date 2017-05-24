@@ -50,10 +50,15 @@
 			</form>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col s6 offset-s3" id="prova">
+			
+		</div>
+	</div>
 	<script type="text/javascript">
 		$('.datepicker').pickadate({
-			selectMonths: true, // Creates a dropdown to control month
-			selectYears: 150 // Creates a dropdown of 15 years to control year
+			selectMonths: true, 
+			selectYears: 150 
 		});
 	</script>
 	<script type="text/javascript">
@@ -62,7 +67,6 @@
 
 			e.preventDefault();
 			$.ajax({
-
 				url: 'register',
 				type: 'POST',
 				data: $(this).serialize(),
