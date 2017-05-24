@@ -1,29 +1,35 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title; ?></title>
+    <title>Admin Menu</title>
+    <link rel="stylesheet" href="<?php echo URL; ?>css/materialize.css">
     <script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
-	<link rel="stylesheet" href="<?php echo URL; ?>css/pure-min.css">
-	<link rel="stylesheet" href="<?php echo URL; ?>css/style.css">
-	<link rel="stylesheet" href="<?php echo URL; ?>css/grids-responsive-min.css">
-	<link rel="stylesheet" href="<?php echo URL; ?>css/font-awesome/css/font-awesome.min.css" type="text/css">
-	<link rel="stylesheet" href="<?php echo URL; ?>css/side-menu.css">
+    <script type="text/javascript" src="<?php echo URL; ?>js/materialize.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
-<div id="layout">
-    <a href="#menu" id="menuLink" class="menu-link">
-        <span></span>
-    </a>
-    <div id="menu">
-        <div class="pure-menu">
-            <a class="pure-menu-heading" href="#"> <?php echo $_SESSION['nome']; ?> </a>
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="<?php echo URL; ?>user/home" class="pure-menu-link">Prenota</a></li>
-                <li class="pure-menu-item"><a href="<?php echo URL; ?>user/vediPrenotazioni" class="pure-menu-link">Vedi prenotazioni</a></li>
-                <li class="pure-menu-item"><a href="<?php echo URL; ?>user/vediInformazioni" class="pure-menu-link">Informazioni</a></li>
-                <li class="pure-menu-item"><a href="<?php echo URL; ?>user/logout" class="pure-menu-link">Logout</a></li>
-            </ul>
-        </div>
+    <div>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo"><?php echo $_SESSION['nome']; ?></a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="<?php echo URL; ?>user/home"><i class="material-icons left">assignment</i>Prenota</a></li>
+                    <li><a href="<?php echo URL; ?>user/vediInformazioni"><i class="material-icons left">person</i>Informazioni
+                    </a></li>
+                    <li><a href="<?php echo URL; ?>user/vediPrenotazioni"><i class="material-icons left">restaurant</i>Cibo</a></li>
+                    <li><a href="<?php echo URL; ?>user/logout"><i class="material-icons left">input</i>Logout</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="<?php echo URL; ?>user/home"><i class="material-icons left">assignment</i>Prenota</a></li>
+                    <li><a href="<?php echo URL; ?>user/vediInformazioni"><i class="material-icons left">person</i>Informazioni</a></li>
+                    <li><a href="<?php echo URL; ?>user/vediPrenotazioni"><i class="material-icons left">restaurant</i>Cibo</a></li>
+                    <li><a href="<?php echo URL; ?>user/logout"><i class="material-icons left">input</i>Logout</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
+    <script type="text/javascript">
+        $(".button-collapse").sideNav();
+    </script>
