@@ -142,6 +142,20 @@ class Model
 		return $query->fetchAll();
 	}
 
+	/*
+	** Funzione che permette di prendere 
+	** cibo e bibite di un database
+	*/
+	public function getAllCiboAndBibite()
+	{
+		$sql = 'SELECT cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria, categoria.id
+					FROM cibo, categoria
+					WHERE cibo.id_categoria = categoria.id ORDER BY categoria.id';
+		$query = $this->db->prepare($sql);
+		$query->execute();
+		return $query->fetchAll();
+	}
+
 	/**
 	** Funzione che permette di avere tutti 
 	** i primi piatti presenti nel database

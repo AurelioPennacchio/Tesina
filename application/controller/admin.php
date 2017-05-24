@@ -126,7 +126,7 @@ class Admin extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id_admin'])){
-			$cibi = $this->model->getAllCibo();
+			$cibi = $this->model->getAllCiboAndBibite();
 			require APP . 'view/admin/menu.php';
 			require APP . 'view/admin/cibo.php';
 		}
