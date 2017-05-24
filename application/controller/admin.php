@@ -119,6 +119,32 @@ class Admin extends Controller
 	}
 
 	/**
+	** Funzione che permette di vedere
+	** tutti i cibi presenti
+	*/
+	public function cibo()
+	{
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+			$cibi = $this->model->getAllCibo();
+			require APP . 'view/admin/menu.php';
+			require APP . 'view/admin/cibo.php';
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
+	}
+
+	/**
+	** Funzione che permette di vedere
+	** tutte le statistiche di un cibo
+	*/
+	public function statistiche()
+	{
+
+	}
+
+	/**
 	** Funzione che aggiunge pagina di test per l'admin
 	*/
 	public function test()
