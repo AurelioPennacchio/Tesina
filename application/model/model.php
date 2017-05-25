@@ -196,30 +196,5 @@ class Model
 		return $query->fetchAll();
 	}
 
-	/**
-	** Funzione che permette di eliminare cibo
-	** nel database
-	*/
-	public function deleteCibo()
-	{
-
-	}
-
-	/**
-	** Funzione che permette di vedere 
-	** tutte le prenotazioni effettuate
-	*/
-	public function vediPrenotazioniAdmin()
-	{
-
-	}
-
-	/**
-	** Funzione che permette di vedere 
-	** tutte le prenotazioni effettuate
-	*/
-	public function vediPrenotazioniUtente()
-	{
-
-	}
+	
 }

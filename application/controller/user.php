@@ -79,7 +79,13 @@ class User extends Controller
 	*/
 	public function register()
 	{
-		require APP . 'view/user/registra.php';
+		if(isset($_SESSION['id'])){
+			header('location:' . URL . 'user/home');
+		}
+		else{
+			require APP . 'view/user/registra.php';
+		}
+		
 	}
 
 	/**
@@ -133,6 +139,19 @@ class User extends Controller
 		}
 		else{
 			header('location:' . URL . 'user/login');
+		}
+	}
+
+	/**
+	** Funzione che permette di prenotare
+	*/
+	public function prenota()
+	{
+		if(isset($_SESSION['id'])){
+			header('location:' . URL . 'user/home');
+		}
+		else{
+			require APP . 'view/user/prenota.php';
 		}
 	}
 

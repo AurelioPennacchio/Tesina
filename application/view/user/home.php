@@ -51,6 +51,9 @@
 					</div>
 				</form>
 			</div>
+			<div id="prova">
+				
+			</div>
 			<script type="text/javascript">
 				$(document).ready(function() {
     				$('select').material_select();
@@ -60,7 +63,7 @@
 				$('#form_prenotazione').submit(function(e) {
 					e.preventDefault();
 					$.ajax({
-						url: '',
+						url: 'prenota',
 						type: 'POST',
 						data: $(this).serialize(),
 						dataType: 'html'
