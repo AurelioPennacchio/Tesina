@@ -4,4 +4,5 @@
 	$id_secondo_piatto = $_POST['secondo_piatto'];
 	$id_bibita = $_POST['bibita'];
 	$id_utente = $_SESSION['id'];
+	$this->model->addPrenotazione($id_primo_piatto,$id_secondo_piatto,$id_bibita,$id_utente);
 ?>

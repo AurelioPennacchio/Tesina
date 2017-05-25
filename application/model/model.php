@@ -196,5 +196,18 @@ class Model
 		return $query->fetchAll();
 	}
 
-	
+
+	/**
+	** Funzione che permette di aggiungere una prenotazione
+	*/
+	public function addPrenotazione($id_primo, $id_secondo, $id_bibita, $id_utente)
+	{
+		$data = date("Y-m-d");
+		$sql = 'INSERT INTO prenotazioni(data_prenotazione, id_utente, id_primo_piatto, id_secondo_piatto,
+			id_bibita) VALUES (:data, :utente, :primo, :secondo, :bibita)';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':data'=>$data, ':utente'=>$id_utente, ':primo'=>$id_primo,
+			':secondo'=>$id_secondo,':bibita'=>$id_bibita);
+		$query->execute($parameters);
+	}
 }
