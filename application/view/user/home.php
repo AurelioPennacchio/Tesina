@@ -5,13 +5,13 @@
 				</div>
 			</div>
 			<div class="row">
-				<form class="col s12" method="POST" id="prenotazione">
+				<form class="col s12" method="POST" id="form_prenotazione">
 					<div class="row">
 						<div class="input-field col s12 m6 offset-m3">
 							<select name="primo_piatto">
 								<?php
 									foreach ($primi_piatti as $key) {
-										echo "<option>" . $key->Nome . "</option>";
+										echo "<option value=\"$key->id\">" . $key->Nome . "</option>";
 									}
 								?>
 							</select>
@@ -23,7 +23,7 @@
 							<select name="secondo_piatto">
 								<?php
 									foreach ($secondi_piatti as $key) {
-										echo "<option>" . $key->Nome . "</option>";
+										echo "<option value=\"$key->id\">" . $key->Nome . "</option>";
 									}
 								?>
 							</select>
@@ -35,7 +35,7 @@
 							<select name="bibita">
 								<?php
 									foreach ($bibite as $key) {
-										echo "<option>" . $key->Nome . "</option>";
+										echo "<option value=\"$key->id\">" . $key->Nome . "</option>";
 									}
 								?>
 							</select>
@@ -55,6 +55,26 @@
 				$(document).ready(function() {
     				$('select').material_select();
   				});
+			</script>
+			<script type="text/javascript">
+				$('#form_prenotazione').submit(function(e) {
+					e.preventDefault();
+					$.ajax({
+						url: '',
+						type: 'POST',
+						data: $(this).serialize(),
+						dataType: 'html'
+					})
+					.done(function(data) {
+						console.log('Fatto tutto');
+						$('#prova').fadeOut('slow', function() {
+							$('#prova').fadeIn('slow').html(data);
+						});
+					})
+					.fail(function(){
+						alert('Failed');
+					});
+				});
 			</script>
 	</body>
 </html>

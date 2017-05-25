@@ -120,7 +120,7 @@ class Model
 	*/
 	public function getAllCibo()
 	{
-		$sql = 'SELECT cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
+		$sql = 'SELECT cibo.id,cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
 					FROM cibo, categoria
 					WHERE cibo.id_categoria = categoria.id AND (categoria.id = 1 OR categoria.id = 2)';
 		$query = $this->db->prepare($sql);
@@ -134,7 +134,7 @@ class Model
 	*/
 	public function getAllBibite()
 	{
-		$sql = 'SELECT cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
+		$sql = 'SELECT cibo.id, cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
 					FROM cibo, categoria
 					WHERE cibo.id_categoria = categoria.id AND categoria.id = 3';
 		$query = $this->db->prepare($sql);
@@ -148,7 +148,7 @@ class Model
 	*/
 	public function getAllCiboAndBibite()
 	{
-		$sql = 'SELECT cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria, categoria.id
+		$sql = 'SELECT cibo.id, cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria, categoria.id
 					FROM cibo, categoria
 					WHERE cibo.id_categoria = categoria.id ORDER BY categoria.id';
 		$query = $this->db->prepare($sql);
@@ -162,7 +162,7 @@ class Model
 	*/
 	public function getAllPrimiPiatti()
 	{
-		$sql = 'SELECT cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
+		$sql = 'SELECT cibo.id, cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
 					FROM cibo, categoria
 					WHERE cibo.id_categoria = categoria.id AND categoria.id = 1';
 		$query = $this->db->prepare($sql);
@@ -176,7 +176,7 @@ class Model
 	*/
 	public function getAllSecondiPiatti()
 	{
-		$sql = 'SELECT cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
+		$sql = 'SELECT cibo.id, cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
 					FROM cibo, categoria
 					WHERE cibo.id_categoria = categoria.id AND categoria.id = 2';
 		$query = $this->db->prepare($sql);

@@ -137,20 +137,6 @@ class User extends Controller
 	}
 
 	/**
-	** Funzione che permette di verificare l'account
-	*/
-	public function verify()
-	{
-		session_start();
-		if(isset($_SESSION['id'])){
-			header('location:' . URL . 'user/home');
-		}
-		else{
-			require APP . 'view/user/verify.php';
-		}
-	}
-
-	/**
 	** Funzione che permette di svolgere i test
 	** dei metodi presenti nel model
 	*/
