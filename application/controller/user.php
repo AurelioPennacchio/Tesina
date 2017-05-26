@@ -164,6 +164,11 @@ class User extends Controller
 		$primi_piatti = $this->model->getAllPrimiPiatti();
 		$secondi_piatti = $this->model->getAllSecondiPiatti();
 		$bibite = $this->model->getAllBibite();
+		//$this->model->addPrenotazioneDistinta(5);
+		$prova = $this->model->getPrenotazioneDistinta(7);
+		//$this->model->addPrenotazioneSemplice(2,1);
+		//$this->model->addPrenotazioneSemplice(2,3);
+		//$this->model->addPrenotazioneSemplice(2,5);
 		require APP . 'view/user/test.php';
 	}
 

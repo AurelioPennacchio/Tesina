@@ -1,3 +1,3 @@
 <?php 
-	var_dump($primi_piatti);
+	var_dump($prova);
 ?>
