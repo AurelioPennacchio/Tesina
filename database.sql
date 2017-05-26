@@ -51,6 +51,25 @@ CREATE TABLE prenotazioni
 	FOREIGN KEY (id_bibita) REFERENCES cibo(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
+
+CREATE TABLE prenotazione_distinta
+(
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id_utente INT UNSIGNED,
+	data DATE NOT NULL,
+	FOREIGN KEY (id_utente) REFERENCES user(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE prenotazione_semplice
+(
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	id_pre_dist INT UNSIGNED, 
+	id_cibo INT UNSIGNED,
+	FOREIGN KEY (id_pre_dist) REFERENCES prenotazione_distinta(id) ON UPDATE CASCADE ON DELETE CASCADE,
+	FOREIGN KEY (id_cibo) REFERENCES cibo(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
 INSERT INTO categoria (nome) VALUES ('Primo piatto');
 INSERT INTO categoria (nome) VALUES ('Secondo piatto');
 INSERT INTO categoria (nome) VALUES ('Bibita');
@@ -75,3 +94,29 @@ VALUES ('Acqua frizzante 75cl','Acqua frizzante 75cl',3);
 
 
 
+INSERT INTO prenotazione_distinta (id_utente,data) 
+VALUES (5,'2017-05-26');
+
+INSERT INTO prenotazione_distinta (id_utente,data) 
+VALUES (5,'2017-05-25');
+
+INSERT INTO prenotazione_distinta (id_utente,data) 
+VALUES (7,'2017-05-26');
+
+INSERT INTO prenotazione_semplice (id_pre_dist,id_cibo)
+VALUES (1, 1);
+
+INSERT INTO prenotazione_semplice (id_pre_dist,id_cibo)
+VALUES (1, 3);
+
+INSERT INTO prenotazione_semplice (id_pre_dist,id_cibo)
+VALUES (1, 5);
+
+INSERT INTO prenotazione_semplice (id_pre_dist,id_cibo)
+VALUES (3, 2);
+
+INSERT INTO prenotazione_semplice (id_pre_dist,id_cibo)
+VALUES (3, 3);
+
+INSERT INTO prenotazione_semplice (id_pre_dist,id_cibo)
+VALUES (3, 6);
