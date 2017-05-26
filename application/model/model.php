@@ -210,4 +210,44 @@ class Model
 			':secondo'=>$id_secondo,':bibita'=>$id_bibita);
 		$query->execute($parameters);
 	}
+
+	/**
+	** Funzione che permette di aggiungere una prenotazione distinta
+	*/
+	public function addPrenotazioneDistinta($id_utente)
+	{
+		$data = date("Y-m-d");
+		$sql = 'INSERT INTO prenotazione_distinta (id_utente,data) 
+				VALUES (:id_utente,:data)';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id_utente'=>$id_utente, ':data'=>$data);
+		$query->execute($parameters);
+	}
+
+	/**
+	** Funzione che permette di avere una prenotazione distinta
+	*/ 
+	public function getPrenotazioneDistinta($id_utente){
+		$data = date("Y-m-d");
+		$sql = 'SELECT * FROM prenotazione_distinta WHERE id_utente = :id AND data=:data';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id'=>$id_utente, ':data'=>$data);
+		$query->execute($parameters);
+		return $query->fetch();
+	}
+
+	/**
+	** Funzione che permette di aggiungere 
+	** una prenotazione semplice
+	*/
+	public function addPrenotazioneSemplice($id_pre_dist,$id_cibo)
+	{
+		$sql = 'INSERT INTO prenotazione_semplice (id_pre_dist,id_cibo)
+				VALUES (:id, :cibo)';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id'=>$id_pre_dist, ':cibo'=>$id_cibo);
+		$query->execute($parameters);
+	}
+
+	
 }
