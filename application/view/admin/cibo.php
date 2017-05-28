@@ -1,7 +1,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col s12 m6 offset-m3">
-					<h1 class="center-align">Lista di tutti i cibi e bibite</h1>
+					<h3 class="center-align">Lista di tutti i cibi e bibite</h3>
 				</div>
 			</div>
 			<div class="row">

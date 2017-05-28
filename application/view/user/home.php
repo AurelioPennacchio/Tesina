@@ -1,7 +1,7 @@
 
 			<div class="row">
 				<div class="col s12">
-					<h1 class="center-align">Effettua la prenotazione</h1>
+					<h3 class="center-align">Effettua la prenotazione</h3>
 				</div>
 			</div>
 			<div class="row">

@@ -1,6 +1,6 @@
 		<div class="row">
 			<div class="col s12 m6 offset-m3">
-				<h1 class="center-align">Lista delle prenotazioni</h1>
+				<h3 class="center-align">Lista delle prenotazioni</h3>
 			</div>
 		</div>
 		<div class="row">
