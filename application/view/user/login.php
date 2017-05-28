@@ -21,7 +21,7 @@
 						<div class="row">
 							<div class="input-field col s12">
 								<i class="material-icons prefix">account_circle</i>
-								<input type="text" name="email" id="email" placeholder="Email" class="validate">
+								<input type="email" name="email" id="email" placeholder="Email" class="validate">
 								<label for="email">Email</label>
 							</div>
 						</div>
