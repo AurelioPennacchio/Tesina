@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Menu</title>
+    <title></title>
     <link rel="stylesheet" href="<?php echo URL; ?>css/materialize.css">
     <script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
     <script type="text/javascript" src="<?php echo URL; ?>js/materialize.js"></script>
