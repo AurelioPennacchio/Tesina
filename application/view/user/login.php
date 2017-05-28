@@ -57,7 +57,7 @@
 	<div class="row">
 		<div class="col m12 s12">
 			<p class="center-align">
-				<a class="waves-effect waves-light btn" href="<?php echo URL; ?>user/registration">Registrati</a>
+				<a class="" href="<?php echo URL; ?>user/registration">Registrati</a>
 			</p>
 		</div>
 	</div>

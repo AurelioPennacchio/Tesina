@@ -43,8 +43,10 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col s6 offset-s3">
-						<button class="btn waves-effect waves-light" type="submit" name="login">Registrati</button>
+					<div class="col m12 s12">
+						<p class="center-align">
+							<button class="btn waves-effect waves-light" type="submit" name="login">Registrati</button>
+						</p>
 					</div>
 				</div>
 			</form>
