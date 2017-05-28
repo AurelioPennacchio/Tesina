@@ -106,6 +106,9 @@ VALUES (5,'2017-05-24');
 INSERT INTO prenotazione_distinta (id_utente,data) 
 VALUES (7,'2017-05-26');
 
+INSERT INTO prenotazione_distinta (id_utente,data) 
+VALUES (5,'2017-05-28');
+
 INSERT INTO prenotazione_semplice (id_pre_dist,id_cibo)
 VALUES (1, 1);
 
