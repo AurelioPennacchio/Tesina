@@ -38,6 +38,7 @@
 							</div>
 						</div>
 						<?php 
+							/*
 							if(isset($info)){
 								echo "<div class=\"row\">";
 								echo "<div class=\"col s12 m12\">";
@@ -46,7 +47,7 @@
 								echo "</p>";
 								echo "</div>";
 								echo "</div>";
-							}
+							}*/
 						?>
 					</form>
 				</div>

@@ -34,7 +34,7 @@ class User extends Controller
 			$result = $this->model->findUser($_POST['email'], $_POST['password']);
 			//funziona con le cose che ritorna
 			if($result == false){
-				$info = 'Utente non registrato o dati inseriti errati';
+				$info = 'Dati errati';
 			}
 			else{
 				$info = $this->model->getUserInfo($result->id);
