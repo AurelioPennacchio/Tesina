@@ -170,6 +170,8 @@ class User extends Controller
 		//$this->model->addPrenotazioneSemplice(2,3);
 		//$this->model->addPrenotazioneSemplice(2,5);
 		$prova2 = $this->model->getPrenotazione(5);
+		$prova3 = $this->model->getPrenotazioneDistinta(5);
+		$prova4 = $this->model->addPrenotazioneCompleta(5,1,3,5);
 		require APP . 'view/user/test.php';
 	}
 
