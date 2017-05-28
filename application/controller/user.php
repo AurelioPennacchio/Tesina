@@ -116,6 +116,7 @@ class User extends Controller
 		session_start();
 		if(isset($_SESSION['id'])){
 			$title = 'Prenotazioni';
+			$prenotazioni = $this->model->getPrenotazione($_SESSION['id']);
 			require APP . 'view/user/menu.php';
 			require APP . 'view/user/prenotazioni.php';
 		}
