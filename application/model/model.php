@@ -252,6 +252,25 @@ class Model
 	/**
 	**
 	*/
+	public function addPrenotazioneCompleta($id_utente, $id_primo, $id_secondo, $id_bibita)
+	{
+		$data = date("Y-m-d");
+		if($this->getPrenotazioneDistinta($id_utente)!=false){
+			return false;
+		}
+		$this->addPrenotazioneDistinta($id_utente);
+		$id_pre = $this->getPrenotazioneDistinta($id_utente);
+		$id_pre_dist = $id_pre->id;
+		$this->addPrenotazioneSemplice($id_pre_dist,$id_primo);
+		$this->addPrenotazioneSemplice($id_pre_dist,$id_secondo);
+		$this->addPrenotazioneSemplice($id_pre_dist,$id_bibita);
+		return true;
+	}
+
+	/**
+	** Funzione che permette di avere le prenotazioni
+	** che ha effettuato un utente
+	*/
 	public function getPrenotazione($id_utente)
 	{
 		$sql = 'SELECT prenotazione_distinta.id AS id_prenotazione, cibo.nome AS Cibo 
