@@ -283,4 +283,42 @@ class Model
 		$query->execute($parameters);
 		return $query->fetchAll();
 	}
+
+
+	/**
+	** Funzione che permette di avere le prenotazioni
+	** della giornata
+	*/
+	public function getPrenotazioniOdierne()
+	{
+		$data = date("Y-m-d");
+		$sql = 'SELECT prenotazione_distinta.id AS id_prenotazione, cibo.nome AS Cibo, prenotazione_distinta.data AS data, 
+					informazioni.nome AS nome_utente, informazioni.cognome, informazioni.id_utente
+					FROM prenotazione_distinta, prenotazione_semplice, cibo, informazioni, user
+					WHERE prenotazione_distinta.id = prenotazione_semplice.id_pre_dist AND cibo.id = prenotazione_semplice.id_cibo 
+					AND informazioni.id_utente = user.id AND user.id = prenotazione_distinta.id_utente AND 
+					prenotazione_distinta.data = :data
+					ORDER BY id_prenotazione';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':data'=>$data);
+		$query->execute($parameters);
+		return $query->fetchAll();
+	}
+
+	/**
+	** Funzione che permette di avere le 
+	** tutte le prenotazioni
+	*/
+	public function getAllPrenotazioni()
+	{
+		$sql = 'SELECT prenotazione_distinta.id AS id_prenotazione, cibo.nome AS Cibo, prenotazione_distinta.data AS data, 
+					informazioni.nome AS nome_utente, informazioni.cognome, informazioni.id_utente
+					FROM prenotazione_distinta, prenotazione_semplice, cibo, informazioni, user
+					WHERE prenotazione_distinta.id = prenotazione_semplice.id_pre_dist AND cibo.id = prenotazione_semplice.id_cibo 
+					AND informazioni.id_utente = user.id AND user.id = prenotazione_distinta.id_utente
+					ORDER BY id_prenotazione';
+		$query = $this->db->prepare($sql);
+		$query->execute();
+		return $query->fetchAll();
+	}
 }
