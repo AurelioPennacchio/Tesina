@@ -44,7 +44,7 @@
 					</div>
 					<div class="row">
 						<div class="col s1 m1 offset-m9 offset-s9">
-							<button class="btn-floating btn-large waves-effect waves-light red" type="submit" name="action">
+							<button class="btn-floating btn-large waves-effect waves-light red accent-1" type="submit" name="action">
     							<i class="material-icons">add</i>
   							</button>
 						</div>

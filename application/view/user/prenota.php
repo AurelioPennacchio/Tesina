@@ -7,13 +7,15 @@
 	//$this->model->addPrenotazione($id_primo_piatto,$id_secondo_piatto,$id_bibita,$id_utente);
 	$prenotazione = $this->model->addPrenotazioneCompleta($id_utente, $id_primo, $id_secondo, $id_bibita);
 ?>
-<div class="col s12">
-	<?php
-		if($prenotazione){
-			echo "<a class=\"waves-effect waves-light btn\">Prenotato!</a>";
-		}
-		else{
-			echo "<a class=\"waves-effect waves-light btn\">Prenotazione gia fatta!</a>";
-		}
-	?>
+<div class="col m12 s12">
+	<p class="center-align">
+		<?php
+			if($prenotazione){
+				echo "<a class=\"waves-effect waves-light btn red accent-1\">Prenotato!</a>";
+			}
+			else{
+				echo "<a class=\"waves-effect waves-light btn red accent-1\">Prenotazione gia fatta!</a>";
+			}
+		?>
+	</p>
 </div>
