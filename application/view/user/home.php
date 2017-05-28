@@ -51,7 +51,7 @@
 					</div>
 				</form>
 			</div>
-			<div id="prova">
+			<div class="row" id="prova">
 				
 			</div>
 			<script type="text/javascript">
