@@ -77,6 +77,7 @@ class Admin extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id_admin'])){
+			$title = 'Menu';
 			require APP . 'view/admin/menu.php';
 			require APP . 'view/admin/aggiungi_cibo.php';
 		}
@@ -110,6 +111,7 @@ class Admin extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id_admin'])){
+			$title = 'Prenotazioni'
 			require APP . 'view/admin/menu.php';
 			require APP . 'view/admin/vedi_prenotazioni.php';
 		}
@@ -126,6 +128,7 @@ class Admin extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id_admin'])){
+			$title = 'Cibo';
 			$cibi = $this->model->getAllCiboAndBibite();
 			require APP . 'view/admin/menu.php';
 			require APP . 'view/admin/cibo.php';
@@ -141,7 +144,13 @@ class Admin extends Controller
 	*/
 	public function statistiche()
 	{
-
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+			$title = 'Statistiche';
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
 	}
 
 	/**
