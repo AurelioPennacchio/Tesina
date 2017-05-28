@@ -62,24 +62,9 @@ class Admin extends Controller
 		session_start();
 		if(isset($_SESSION['id_admin'])){
 			$title = 'Home';
-			header('location:' . URL . 'admin/aggiungiCibo');
-		}
-		else{
-			header('location:' . URL . 'admin/index');
-		}
-	}
-
-	/**
-	** Funzione che permette all'admin di 
-	** andare nella pagina di inserimento del cibo
-	*/
-	public function aggiungiCibo()
-	{
-		session_start();
-		if(isset($_SESSION['id_admin'])){
-			$title = 'Menu';
+			$prenotazioni = $this->model->getAllPrenotazioni();
 			require APP . 'view/admin/menu.php';
-			require APP . 'view/admin/aggiungi_cibo.php';
+			require APP . 'view/admin/vedi_prenotazioni.php';
 		}
 		else{
 			header('location:' . URL . 'admin/index');
@@ -96,24 +81,6 @@ class Admin extends Controller
 		if(isset($_SESSION['id_admin'])){
 			require APP . 'view/admin/menu.php';
 			require APP . 'view/admin/elimina_cibo.php';
-		}
-		else{
-			header('location:' . URL . 'admin/index');
-		}
-	}
-
-	/**
-	** Funzione che permette all'admin
-	** di andare nella pagina dove può
-	** vedere tutte le prenotazioni
-	*/
-	public function vediPrenotazioni()
-	{
-		session_start();
-		if(isset($_SESSION['id_admin'])){
-			$title = 'Prenotazioni';
-			require APP . 'view/admin/menu.php';
-			require APP . 'view/admin/vedi_prenotazioni.php';
 		}
 		else{
 			header('location:' . URL . 'admin/index');
@@ -158,7 +125,7 @@ class Admin extends Controller
 	*/
 	public function test()
 	{
-		$prova = $this->model->getPrenotazioniOdierne();
+		$prova = $this->model->getAllPrenotazioni();
 		require APP . 'view/admin/test.php';
 	}
 
