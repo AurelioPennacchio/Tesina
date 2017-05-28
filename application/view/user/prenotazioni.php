@@ -5,7 +5,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col s12 m6 offset-m3 ">
+				<div class="col s11 m6 offset-m3 offset-s1">
 					<table class="bordered responsive-table centered">
 						<thead>
 							<tr>
