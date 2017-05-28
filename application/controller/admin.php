@@ -111,7 +111,7 @@ class Admin extends Controller
 	{
 		session_start();
 		if(isset($_SESSION['id_admin'])){
-			$title = 'Prenotazioni'
+			$title = 'Prenotazioni';
 			require APP . 'view/admin/menu.php';
 			require APP . 'view/admin/vedi_prenotazioni.php';
 		}
@@ -158,6 +158,7 @@ class Admin extends Controller
 	*/
 	public function test()
 	{
+		$prova = $this->model->getPrenotazioniOdierne();
 		require APP . 'view/admin/test.php';
 	}
 
