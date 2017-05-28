@@ -273,7 +273,7 @@ class Model
 	*/
 	public function getPrenotazione($id_utente)
 	{
-		$sql = 'SELECT prenotazione_distinta.id AS id_prenotazione, cibo.nome AS Cibo 
+		$sql = 'SELECT prenotazione_distinta.id AS id_prenotazione, cibo.nome AS Cibo, prenotazione_distinta.data AS data 
 				FROM prenotazione_distinta, prenotazione_semplice, cibo
 				WHERE prenotazione_distinta.id = prenotazione_semplice.id_pre_dist 
 				AND cibo.id = prenotazione_semplice.id_cibo AND prenotazione_distinta.id_utente=:id
