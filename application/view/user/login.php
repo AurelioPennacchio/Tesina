@@ -35,7 +35,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col s12 m6 l4 offset-s1 offset-l4 offset-m3">
+					<div class="col s12 l4 offset-s1 offset-l4">
 						<a class="waves-effect waves-light btn" href="<?php echo URL; ?>user/registration">Non registrato? Clicca qui</a>
 					</div>
 				</div>
