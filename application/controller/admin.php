@@ -114,6 +114,9 @@ class Admin extends Controller
 		session_start();
 		if(isset($_SESSION['id_admin'])){
 			$title = 'Statistiche';
+			$cibo = $this->model->getAllCibo();
+			require APP .'view/admin/menu.php';
+			require APP . 'view/admin/statistiche.php';
 		}
 		else{
 			header('location:' . URL . 'admin/index');
