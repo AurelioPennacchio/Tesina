@@ -26,7 +26,7 @@
 			</form>
 		</div>
 		<div class="container">
-			<div class="row">
+			<div class="row" id="grafo">
 				<canvas id="myChart"></canvas>
 			</div>
 		</div>
@@ -36,48 +36,6 @@
   			});
 		</script>
 		<script type="text/javascript">
-			/*
-			$('#form_grafico').submit(function(){
-				$.ajax({
-					url: "api",
-					method: "POST",
-					success: function(data) {
-						console.log(data);
-						var data_prenotazione = [];
-						var numero_prenotazioni = [];
-
-						for(var i in data_prenotazione) {
-							data_prenotazione.push("Player " + data[i].data);
-							numero_prenotazioni.push(data[i].n_prenotazioni);
-						}
-
-						var chartdata = {
-							labels: data_prenotazione,
-							datasets : [
-								{
-									label: 'Numero prenotazioni',
-									backgroundColor: 'rgba(200, 200, 200, 0.75)',
-									borderColor: 'rgba(200, 200, 200, 0.75)',
-									hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-									hoverBorderColor: 'rgba(200, 200, 200, 1)',
-									data: score
-								}
-							]
-						};
-
-						var ctx = $("#myChart");
-
-						var barGraph = new Chart(ctx, {
-							type: 'bar',
-							data: chartdata
-						});
-					},
-					error: function(data) {
-						console.log(data);
-					}
-				});
-			});
-			*/
 			$('#form_grafico').submit(function(e) {
 				e.preventDefault();
 				$.ajax({
@@ -89,6 +47,8 @@
 				.done(function(data) {
 					//console.log('Fatto tutto');
 					console.log(data);
+					$('#myChart').remove(); // this is my <canvas> element
+  					$('#grafo').append('<canvas id="myChart"><canvas>');
 					var data_prenotazione = [];
 					var numero_prenotazioni = [];
 					for(var i in data) {
