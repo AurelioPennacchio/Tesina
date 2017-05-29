@@ -4,7 +4,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<form class="col s12" method="POST" id="form_grafico">
+			<form class="col s12" method="GET" id="form_grafico">
 				<div class="input-field col s12 m6 offset-m3">
 					<select name="cibo">
 						<?php
@@ -82,19 +82,21 @@
 				e.preventDefault();
 				$.ajax({
 					url: 'api',
-					type: 'POST',
+					type: 'GET',
 					data: $(this).serialize(),
-					dataType: 'html'
+					dataType: 'json'
 				})
 				.done(function(data) {
-					console.log('Fatto tutto');
+					//console.log('Fatto tutto');
 					console.log(data);
 					var data_prenotazione = [];
 					var numero_prenotazioni = [];
-					for(var i in data_prenotazione) {
+					for(var i in data) {
 						data_prenotazione.push(data[i].data);
 						numero_prenotazioni.push(data[i].n_prenotazioni);
 					}
+					//console.log(data_prenotazione);
+					//console.log(numero_prenotazioni);
 					var chartdata = {
 						labels: data_prenotazione,
 						datasets : [
