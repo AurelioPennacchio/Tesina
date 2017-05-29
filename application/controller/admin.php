@@ -124,6 +124,20 @@ class Admin extends Controller
 	}
 
 	/**
+	**
+	*/
+	public function api()
+	{
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+			require APP . 'view/admin/api_grafico.php';
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
+	}
+
+	/**
 	** Funzione che aggiunge pagina di test per l'admin
 	*/
 	public function test()
