@@ -312,11 +312,11 @@ class Model
 	public function getAllPrenotazioni()
 	{
 		$sql = 'SELECT prenotazione_distinta.id AS id_prenotazione, cibo.nome AS Cibo, prenotazione_distinta.data AS data, 
-					informazioni.nome AS nome_utente, informazioni.cognome, informazioni.id_utente
+					informazioni.nome AS nome_utente, informazioni.cognome, informazioni.id_utente, cibo.id
 					FROM prenotazione_distinta, prenotazione_semplice, cibo, informazioni, user
 					WHERE prenotazione_distinta.id = prenotazione_semplice.id_pre_dist AND cibo.id = prenotazione_semplice.id_cibo 
 					AND informazioni.id_utente = user.id AND user.id = prenotazione_distinta.id_utente
-					ORDER BY id_prenotazione';
+					ORDER BY id_prenotazione, cibo.id';
 		$query = $this->db->prepare($sql);
 		$query->execute();
 		return $query->fetchAll();

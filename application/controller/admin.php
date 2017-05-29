@@ -125,7 +125,7 @@ class Admin extends Controller
 	*/
 	public function test()
 	{
-		$prova = $this->model->getAllPrenotazioni();
+		$prenotazioni = $this->model->getAllPrenotazioni();
 		require APP . 'view/admin/test.php';
 	}
 
