@@ -4,7 +4,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<form class="col s12" id="" method="POST">
+			<form class="col s12" method="POST" id="form_grafico">
 				<div class="input-field col s12 m6 offset-m3">
 					<select name="cibo">
 						<?php
@@ -30,11 +30,96 @@
 				<canvas id="myChart"></canvas>
 			</div>
 		</div>
-		<canvas id="myChart"></canvas>
 		<script type="text/javascript">
 			$(document).ready(function() {
     			$('select').material_select();
   			});
+		</script>
+		<script type="text/javascript">
+			/*
+			$('#form_grafico').submit(function(){
+				$.ajax({
+					url: "api",
+					method: "POST",
+					success: function(data) {
+						console.log(data);
+						var data_prenotazione = [];
+						var numero_prenotazioni = [];
+
+						for(var i in data_prenotazione) {
+							data_prenotazione.push("Player " + data[i].data);
+							numero_prenotazioni.push(data[i].n_prenotazioni);
+						}
+
+						var chartdata = {
+							labels: data_prenotazione,
+							datasets : [
+								{
+									label: 'Numero prenotazioni',
+									backgroundColor: 'rgba(200, 200, 200, 0.75)',
+									borderColor: 'rgba(200, 200, 200, 0.75)',
+									hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+									hoverBorderColor: 'rgba(200, 200, 200, 1)',
+									data: score
+								}
+							]
+						};
+
+						var ctx = $("#myChart");
+
+						var barGraph = new Chart(ctx, {
+							type: 'bar',
+							data: chartdata
+						});
+					},
+					error: function(data) {
+						console.log(data);
+					}
+				});
+			});
+			*/
+			$('#form_grafico').submit(function(e) {
+				e.preventDefault();
+				$.ajax({
+					url: 'api',
+					type: 'POST',
+					data: $(this).serialize(),
+					dataType: 'html'
+				})
+				.done(function(data) {
+					console.log('Fatto tutto');
+					console.log(data);
+					var data_prenotazione = [];
+					var numero_prenotazioni = [];
+					for(var i in data_prenotazione) {
+						data_prenotazione.push(data[i].data);
+						numero_prenotazioni.push(data[i].n_prenotazioni);
+					}
+					var chartdata = {
+						labels: data_prenotazione,
+						datasets : [
+							{
+								label: 'Numero prenotazioni',
+								backgroundColor: 'rgba(200, 200, 200, 0.75)',
+								borderColor: 'rgba(200, 200, 200, 0.75)',
+								hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+								hoverBorderColor: 'rgba(200, 200, 200, 1)',
+								data: numero_prenotazioni
+							}
+						]
+					};
+
+					var ctx = $("#myChart");
+
+					var barGraph = new Chart(ctx, {
+						type: 'bar',
+						data: chartdata
+					});
+				})
+				.fail(function(){
+					alert('Failed');
+				});
+			});
 		</script>
 	</body>
 </html>
