@@ -6,6 +6,8 @@
 	<script type="text/javascript" src="<?php echo URL; ?>js/jquery.js"></script>
 	<script type="text/javascript" src="<?php echo URL; ?>js/materialize.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
