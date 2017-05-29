@@ -321,4 +321,20 @@ class Model
 		$query->execute();
 		return $query->fetchAll();
 	}
+
+	/**
+	** Funzione che permette di riceve le statistiche di 
+	** un determinato cibo
+	*/
+	public function getStatsCibo($id_cibo)
+	{
+		$sql = 'SELECT prenotazione_distinta.data, COUNT(*) AS n_prenotazioni
+				FROM prenotazione_distinta, prenotazione_semplice
+				WHERE prenotazione_distinta.id = prenotazione_semplice.id_pre_dist AND prenotazione_semplice.id_cibo = :id
+				GROUP BY prenotazione_distinta.data';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id'=>$id_cibo);
+		$query->execute($parameters);
+		return $query->fetchAll();
+	}
 }
