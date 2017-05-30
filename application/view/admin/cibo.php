@@ -5,18 +5,20 @@
 				</div>
 			</div>
 			<div class="row">
-			<?php
-				foreach ($cibi as $key) {
-					echo "<div class=\"col s12 m6\">";
-					echo "<div class=\"card blue-grey darken-1\">";
-					echo "<div class=\"card-content white-text\">";
-					echo "<span class=\"card-title\">" . $key->Nome . "</span>";
-					echo "<p>" . $key->Descrizione . "</p>";
-					echo "</div>";
-					echo "</div>";
-					echo "</div>";
-				}
-			?>
+				<?php foreach ($cibi as $key): ?>
+					<div class="col s12 m6">
+						<div class="card blue-grey darken-1">
+							<div class="card-content white-text">
+								<span class="card-title">
+									<a href="<?php echo URL; ?>admin/info?cibo=<?php echo $key->id_cibo; ?>"><?php echo $key->Nome; ?></a>
+								</span>
+								<p>
+									<?php echo $key->Descrizione; ?>
+								</p>
+							</div>
+						</div>
+					</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</body>

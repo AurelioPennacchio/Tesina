@@ -106,6 +106,21 @@ class Admin extends Controller
 	}
 
 	/**
+	**
+	*/
+	public function info()
+	{
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+			require APP . 'view/admin/menu.php';
+			require APP . 'view/admin/info.php';
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
+	}
+
+	/**
 	** Funzione che permette di vedere
 	** tutte le statistiche di un cibo
 	*/
@@ -138,11 +153,27 @@ class Admin extends Controller
 	}
 
 	/**
+	**
+	*/
+	public function api2($id_cibo)
+	{
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+			$id = $id_cibo;
+			require APP . 'view/admin/api_grafico2.php';
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
+	}
+
+	/**
 	** Funzione che aggiunge pagina di test per l'admin
 	*/
 	public function test()
 	{
-		$prenotazioni = $this->model->getAllPrenotazioni();
+		//$prenotazioni = $this->model->getAllPrenotazioni();
+		$prenotazioni = $this->model->getStatsCibo(3);
 		require APP . 'view/admin/test.php';
 	}
 

@@ -52,6 +52,8 @@
 					var data_prenotazione = [];
 					var numero_prenotazioni = [];
 					for(var i in data) {
+						//data_prenotazione.push(data[i].nome);
+						//numero_prenotazioni.push(data[i].numero);
 						data_prenotazione.push(data[i].data);
 						numero_prenotazioni.push(data[i].n_prenotazioni);
 					}
@@ -74,7 +76,7 @@
 					var ctx = $("#myChart");
 
 					var barGraph = new Chart(ctx, {
-						type: 'bar',
+						type: 'line',
 						data: chartdata
 					});
 				})

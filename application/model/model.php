@@ -148,7 +148,8 @@ class Model
 	*/
 	public function getAllCiboAndBibite()
 	{
-		$sql = 'SELECT cibo.id, cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria, categoria.id
+		$sql = 'SELECT cibo.id AS id_cibo, cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria, 
+					categoria.id
 					FROM cibo, categoria
 					WHERE cibo.id_categoria = categoria.id ORDER BY categoria.id';
 		$query = $this->db->prepare($sql);
@@ -311,12 +312,12 @@ class Model
 	*/
 	public function getAllPrenotazioni()
 	{
-		$sql = 'SELECT prenotazione_distinta.id AS id_prenotazione, cibo.nome AS Cibo, prenotazione_distinta.data AS data, 
-					informazioni.nome AS nome_utente, informazioni.cognome, informazioni.id_utente, cibo.id
-					FROM prenotazione_distinta, prenotazione_semplice, cibo, informazioni, user
-					WHERE prenotazione_distinta.id = prenotazione_semplice.id_pre_dist AND cibo.id = prenotazione_semplice.id_cibo 
-					AND informazioni.id_utente = user.id AND user.id = prenotazione_distinta.id_utente
-					ORDER BY id_prenotazione, cibo.id';
+		$sql = 'SELECT prenotazione_distinta.id AS id_prenotazione, cibo.nome AS Cibo, prenotazione_distinta.data AS data, categoria.id AS categoria_id,
+			informazioni.nome AS nome_utente, informazioni.cognome, informazioni.id_utente, cibo.id
+			FROM prenotazione_distinta, prenotazione_semplice, cibo, informazioni, user, categoria
+			WHERE prenotazione_distinta.id = prenotazione_semplice.id_pre_dist AND cibo.id = prenotazione_semplice.id_cibo 
+			AND informazioni.id_utente = user.id AND user.id = prenotazione_distinta.id_utente AND cibo.id_categoria = categoria.id
+			ORDER BY id_prenotazione, categoria.id';
 		$query = $this->db->prepare($sql);
 		$query->execute();
 		return $query->fetchAll();
@@ -335,6 +336,36 @@ class Model
 		$query = $this->db->prepare($sql);
 		$parameters = array(':id'=>$id_cibo);
 		$query->execute($parameters);
+		return $query->fetchAll();
+	}
+
+	/**
+	** Funzione che permette di ricevere le info
+	** di un determinato cibo
+	*/
+	public function getCiboInfo($id_cibo)
+	{
+		$sql = 'SELECT cibo.nome, categoria.nome AS categoria, cibo.descrizione 
+				FROM cibo, categoria
+				WHERE cibo.id_categoria = categoria.id AND cibo.id = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id'=>$id_cibo);
+		$query->execute($parameters);
+		return $query->fetch();
+	}
+
+	/**
+	** Funzione che permette di ricevere 
+	** le statistiche di tutti i cibi
+	*/
+	public function getAllStatsCibo()
+	{
+		$sql = 'SELECT cibo.nome as nome, COUNT(*) as numero 
+				FROM prenotazione_semplice, cibo
+				WHERE prenotazione_semplice.id_cibo = cibo.id AND (cibo.id_categoria = 1 OR cibo.id_categoria = 2)
+				GROUP BY cibo.nome';
+		$query = $this->db->prepare($sql);
+		$query->execute();
 		return $query->fetchAll();
 	}
 }
