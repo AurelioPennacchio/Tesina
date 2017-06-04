@@ -10,7 +10,9 @@
 						<div class="card blue-grey darken-1">
 							<div class="card-content white-text">
 								<span class="card-title">
-									<a href="<?php echo URL; ?>admin/info?cibo=<?php echo $key->id_cibo; ?>"><?php echo $key->Nome; ?></a>
+									<a class="white-text" href="<?php echo URL; ?>admin/info?cibo=<?php echo $key->id_cibo; ?>">
+										<?php echo $key->Nome; ?>
+									</a>
 								</span>
 								<p>
 									<?php echo $key->Descrizione; ?>
