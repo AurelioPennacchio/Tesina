@@ -17,59 +17,6 @@
   			});
 		</script>
 		<script type="text/javascript">
-			/*
-			$('#form_grafico').submit(function(e) {
-				e.preventDefault();
-				$.ajax({
-					url: 'api',
-					type: 'GET',
-					data: $(this).serialize(),
-					dataType: 'json'
-				})
-				.done(function(data) {
-					//console.log('Fatto tutto');
-					console.log(data);
-					$('#myChart').remove(); // this is my <canvas> element
-  					$('#grafo').append('<canvas id="myChart"><canvas>');
-					var data_prenotazione = [];
-					var numero_prenotazioni = [];
-					for(var i in data) {
-						//data_prenotazione.push(data[i].nome);
-						//numero_prenotazioni.push(data[i].numero);
-						data_prenotazione.push(data[i].data);
-						numero_prenotazioni.push(data[i].n_prenotazioni);
-					}
-					//console.log(data_prenotazione);
-					//console.log(numero_prenotazioni);
-					var chartdata = {
-						labels: data_prenotazione,
-						datasets : [
-							{
-								label: 'Numero prenotazioni',
-								backgroundColor: 'rgba(200, 200, 200, 0.75)',
-								borderColor: 'rgba(200, 200, 200, 0.75)',
-								hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
-								hoverBorderColor: 'rgba(200, 200, 200, 1)',
-								data: numero_prenotazioni
-							}
-						]
-					};
-
-					var ctx = $("#myChart");
-
-					var barGraph = new Chart(ctx, {
-						type: 'line',
-						data: chartdata
-					});
-				})
-				.fail(function(){
-					alert('Failed');
-				});
-			});
-			*/
-		</script>
-
-		<script type="text/javascript">
 			$(document).ready(function(){
 				$.ajax({
 					url: "api",
