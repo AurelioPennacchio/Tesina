@@ -3,28 +3,9 @@
 				<h3 class="center-align">Statistiche</h3>
 			</div>
 		</div>
-		<div class="row">
-			<form class="col s12" method="GET" id="form_grafico">
-				<div class="input-field col s12 m6 offset-m3">
-					<select name="cibo">
-						<?php
-							foreach ($cibo as $key) {
-								echo "<option value=\"$key->id\">" . $key->Nome . "</option>";
-							}
-						?>
-					</select>
-					<label>Piatto</label>
-				</div>
-				<div class="row">
-					<div class="col s9 m6 offset-m4 offset-s3">
-						<button class="btn waves-effect waves-light red accent-1" type="submit" name="action">
-							grafico
-    						<i class="material-icons right">create</i>
-  						</button>
-					</div>
-				</div>
-			</form>
-		</div>
+
+		
+
 		<div class="container">
 			<div class="row" id="grafo">
 				<canvas id="myChart"></canvas>
@@ -36,6 +17,7 @@
   			});
 		</script>
 		<script type="text/javascript">
+			/*
 			$('#form_grafico').submit(function(e) {
 				e.preventDefault();
 				$.ajax({
@@ -82,6 +64,49 @@
 				})
 				.fail(function(){
 					alert('Failed');
+				});
+			});
+			*/
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$.ajax({
+					url: "api",
+					method: "GET",
+					success: function(data) {
+						console.log(data);
+						var cibo = [];
+						var n_prenotazioni = [];
+						for(var i in data) {
+							cibo.push(data[i].nome);
+							n_prenotazioni.push(data[i].numero);
+						}
+
+						var chartdata = {
+							labels: cibo,
+							datasets : [
+								{
+									label: 'Numero prenotazioni',
+									backgroundColor: 'rgba(200, 200, 200, 0.75)',
+									borderColor: 'rgba(200, 200, 200, 0.75)',
+									hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+									hoverBorderColor: 'rgba(200, 200, 200, 1)',
+									data: n_prenotazioni
+								}
+							]
+						};
+
+						var ctx = $("#myChart");
+
+						var barGraph = new Chart(ctx, {
+							type: 'line',
+							data: chartdata
+						});
+					},
+					error: function(data) {
+						console.log(data);
+					}
 				});
 			});
 		</script>
