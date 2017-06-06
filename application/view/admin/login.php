@@ -7,9 +7,14 @@
 	<script type="text/javascript" src="<?php echo URL; ?>js/materialize.js"></script>
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<style type="text/css">
+		.caso{
+			margin-top: 100px;
+		}
+	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container caso">
 		<div class="row">
 			<div class="card blue-gray darken-1">
 				<div class="card-content black-text">
