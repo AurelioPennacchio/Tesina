@@ -45,11 +45,50 @@ class Model
 	*/
 	public function findUser($email, $password)
 	{
-		$sql = "SELECT * FROM user WHERE email=:email AND password=:password";
+		$sql = "SELECT * FROM user WHERE email=:email AND password=:password AND is_verified = 'T' ";
 		$query = $this->db->prepare($sql);
 		$parameters = array(':email'=>$email,':password'=>$password);
 		$query->execute($parameters);
 		return $query->fetch();
+	}
+
+	/*
+	** Funzione che permette di trovare un user 
+	** tramite l'id
+	*/
+	public function getUser($id)
+	{
+		$sql = "SELECT * FROM user WHERE id = :id";
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id'=>$id);
+		$query->execute($parameters);
+		return $query->fetch();
+	}
+
+	/**
+	** Funzione che permette di trovare gli utenti
+	** verificati
+	*/
+	public function getUserVerified($id)
+	{
+		$sql = "SELECT * FROM user WHERE id = :id AND is_verified = 'T' ";
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id'=>$id);
+		$query->execute($parameters);
+		return $query->fetch();
+	}
+
+	/**
+	** Funzione che permette di modificare 
+	** lo stato di verificato dell'account 
+	** di un utente
+	*/
+	public function setVerified($id)
+	{
+		$sql = 'UPDATE user SET is_verified = \'T\' WHERE id = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id'=>$id);
+		$query->execute($parameters);
 	}
 
 	/**
@@ -80,15 +119,16 @@ class Model
 	/**
 	** Funzione che permette di aggiungere un user
 	*/
-	public function addUser($nome, $cognome, $data_nascita, $email, $password)
+	public function addUser($nome, $cognome, $data_nascita, $email, $password, $casual)
 	{
 		if($this->findUser($email,$password)!=false){
 			return false;
 		}
-		$sql = 'INSERT INTO user (email, password)
-			VALUES (:email,:password)';
+		$sql = 'INSERT INTO user (email, password, is_verified, casual_number)
+			VALUES (:email,:password, :is_verified, :casual_number)';
 		$query = $this->db->prepare($sql);
-		$parameters = array(':email'=>$email,':password'=>$password);
+		$is_verified = 'F';
+		$parameters = array(':email'=>$email,':password'=>$password, ':is_verified'=>$is_verified, ':casual_number'=>$casual);
 		$query->execute($parameters);
 		$id_utente_first = $this->findId($email);
 		$id_utente = $id_utente_first->id;
