@@ -31,16 +31,27 @@ class User extends Controller
 			header('location:' . URL . 'user/home');
 		}
 		if(isset($_POST['email']) && isset($_POST['password'])){
+			$risultato = $this->model->findId($_POST['email']);
 			$result = $this->model->findUser($_POST['email'], $_POST['password']);
 			//funziona con le cose che ritorna
-			if($result == false){
+			if($risultato == false){
 				$info = 'Dati errati';
 			}
 			else{
-				$info = $this->model->getUserInfo($result->id);
-				$_SESSION['nome'] = $info->nome;
-				$_SESSION['id'] = $result->id;
-				header('location:' . URL . 'user/home');
+				$user = $this->model->getUserVerified($risultato->id);
+				//$info = $this->model->getUserInfo($result->id);
+				if($user == false){
+
+				}
+				else{
+					$password_hash = $user->password;
+					if(password_verify($_POST['password'], $password_hash)){
+						$_SESSION['nome'] = $user->email;
+						$_SESSION['id'] = $user->id;
+						header('location:' . URL . 'user/home');
+					}
+				}
+				
 			}
 		}
 		$title = 'Login page';
@@ -153,6 +164,20 @@ class User extends Controller
 		}
 		else{
 			require APP . 'view/user/prenota.php';
+		}
+	}
+
+	/**
+	** Funzione che permette di verificare un utente
+	*/
+	public function verify($id, $casual)
+	{
+		$user = $this->model->getUser($id);
+		$casual_user = $user->casual_number;
+		
+		if($casual_user == $casual){
+			$this->model->setVerified($id);
+			require APP . 'view/user/verify.php';
 		}
 	}
 
