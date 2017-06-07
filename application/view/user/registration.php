@@ -60,7 +60,8 @@
 	<script type="text/javascript">
 		$('.datepicker').pickadate({
 			selectMonths: true, 
-			selectYears: 150 
+			selectYears: 150,
+			format: 'yyyy/mm/dd'
 		});
 	</script>
 	<script type="text/javascript">
