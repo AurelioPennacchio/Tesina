@@ -177,4 +177,36 @@ class Admin extends Controller
 		require APP . 'view/admin/test.php';
 	}
 
+	/**
+	** Funzione che permette di avere un cibo 
+	** non disponibile
+	*/
+	public function notAviable($id)
+	{
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+			$this->model->setNotAviable($id);
+			header('location:' . URL . 'admin/cibo');
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
+	}
+
+	/**
+	** Funzione che permette di avere un cibo
+	** disponibile
+	*/
+	public function aviable($id)
+	{
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+			$this->model->setAviable($id);
+			header('location:' . URL . 'admin/cibo');
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
+	}
+
 }
