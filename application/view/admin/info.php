@@ -12,6 +12,15 @@
 				<canvas id="myChart"></canvas>
 			</div>
 		</div>
+		<div class="row">
+			<div class="col s6 center-align">
+				<?php if($prova->disponibile == 'F'): ?>
+					<a class="waves-effect waves-light btn" href="<?php echo URL; ?>admin/aviable/<?php echo $_GET['cibo']; ?>">Aggiungi</a>
+				<?php else: ?>
+					<a class="waves-effect waves-light btn" href="<?php echo URL; ?>admin/notAviable/<?php echo $_GET['cibo']; ?>">Elimina</a>
+				<?php endif; ?>
+			</div>
+		</div>
 		<script type="text/javascript">
 			$(document).ready(function() {
     			$('select').material_select();
