@@ -176,7 +176,7 @@ class Model
 	{
 		$sql = 'SELECT cibo.id, cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
 					FROM cibo, categoria
-					WHERE cibo.id_categoria = categoria.id AND categoria.id = 3';
+					WHERE cibo.id_categoria = categoria.id AND categoria.id = 3 AND cibo.is_aviable = \'T\' ';
 		$query = $this->db->prepare($sql);
 		$query->execute();
 		return $query->fetchAll();
@@ -205,7 +205,7 @@ class Model
 	{
 		$sql = 'SELECT cibo.id, cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
 					FROM cibo, categoria
-					WHERE cibo.id_categoria = categoria.id AND categoria.id = 1';
+					WHERE cibo.id_categoria = categoria.id AND categoria.id = 1 AND cibo.is_aviable = \'T\' ';
 		$query = $this->db->prepare($sql);
 		$query->execute();
 		return $query->fetchAll();
@@ -219,7 +219,7 @@ class Model
 	{
 		$sql = 'SELECT cibo.id, cibo.nome AS Nome, cibo.descrizione AS Descrizione, categoria.nome AS Categoria
 					FROM cibo, categoria
-					WHERE cibo.id_categoria = categoria.id AND categoria.id = 2';
+					WHERE cibo.id_categoria = categoria.id AND categoria.id = 2 AND cibo.is_aviable = \'T\' ';
 		$query = $this->db->prepare($sql);
 		$query->execute();
 		return $query->fetchAll();

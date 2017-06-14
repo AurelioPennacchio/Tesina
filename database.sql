@@ -92,7 +92,11 @@ VALUES ('Acqua naturale 75cl','Acqua naturale 75cl',3);
 INSERT INTO cibo (nome, descrizione, id_categoria) 
 VALUES ('Acqua frizzante 75cl','Acqua frizzante 75cl',3);
 
+INSERT INTO cibo (nome, descrizione, id_categoria)
+VALUES ('The alla pesca', 'The alla pesca', 3);
 
+INSERT INTO cibo (nome, descrizione, id_categoria)
+VALUES ('The al limone', 'The al limone', 3);
 
 INSERT INTO prenotazione_distinta (id_utente,data) 
 VALUES (5,'2017-05-26');
@@ -135,3 +139,7 @@ VALUES (5, 4);
 
 INSERT INTO prenotazione_semplice (id_pre_dist,id_cibo)
 VALUES (5, 6);
+
+ALTER TABLE cibo ADD is_aviable ENUM('T','F') DEFAULT 'T';
+
+UPDATE cibo SET is_aviable = 'F' WHERE id = 6;
