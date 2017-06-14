@@ -73,14 +73,28 @@ class Admin extends Controller
 
 	/**
 	** Funzione che permette all'admin 
-	** di andare nella pagina di eliminazione del cibo
+	** di andare nella pagina di aggiunta del cibo
 	*/
-	public function eliminaCibo()
+	public function aggiungi()
 	{
 		session_start();
 		if(isset($_SESSION['id_admin'])){
 			require APP . 'view/admin/menu.php';
-			require APP . 'view/admin/elimina_cibo.php';
+			require APP . 'view/admin/aggiungi_cibo.php';
+		}
+		else{
+			header('location:' . URL . 'admin/index');
+		}
+	}
+
+	/*
+	**
+	*/
+	public function aggiungi_cibo()
+	{
+		session_start();
+		if(isset($_SESSION['id_admin'])){
+			require APP . 'view/admin/aggiungi.php'; 
 		}
 		else{
 			header('location:' . URL . 'admin/index');
