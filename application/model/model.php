@@ -155,6 +155,28 @@ class Model
 	}
 
 	/**
+	**
+	*/
+	public function setNotAviable($id)
+	{
+		$sql = 'UPDATE cibo SET is_aviable = \'F\' WHERE id = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id'=>$id);
+		$query->execute($parameters);
+	}
+
+	/**
+	**
+	*/
+	public function setAviable($id)
+	{
+		$sql = 'UPDATE cibo SET is_aviable = \'T\' WHERE id = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id'=>$id);
+		$query->execute($parameters);
+	}
+
+	/**
 	** Funzione che permette di prendere tutto il cibo
 	** dal database
 	*/
@@ -385,7 +407,7 @@ class Model
 	*/
 	public function getCiboInfo($id_cibo)
 	{
-		$sql = 'SELECT cibo.nome, categoria.nome AS categoria, cibo.descrizione 
+		$sql = 'SELECT cibo.nome, categoria.nome AS categoria, cibo.descrizione, cibo.is_aviable as disponibile 
 				FROM cibo, categoria
 				WHERE cibo.id_categoria = categoria.id AND cibo.id = :id';
 		$query = $this->db->prepare($sql);
