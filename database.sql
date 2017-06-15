@@ -2,7 +2,9 @@ CREATE TABLE user
 (
 	id INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	email VARCHAR(40) NOT NULL,
-	password VARCHAR(40) NOT NULL 
+	password VARCHAR(255) NOT NULL, 
+	is_verified ENUM('T','F') NOT NULL, 
+	casual_number INT UNSIGNED NOT NULL
 );
 
 CREATE TABLE informazioni 

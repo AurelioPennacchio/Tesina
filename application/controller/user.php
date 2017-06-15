@@ -187,17 +187,9 @@ class User extends Controller
 	*/
 	public function test()
 	{
-		$primi_piatti = $this->model->getAllPrimiPiatti();
-		$secondi_piatti = $this->model->getAllSecondiPiatti();
-		$bibite = $this->model->getAllBibite();
-		//$this->model->addPrenotazioneDistinta(5);
-		//$prova = $this->model->getPrenotazioneDistinta(7);
-		//$this->model->addPrenotazioneSemplice(2,1);
-		//$this->model->addPrenotazioneSemplice(2,3);
-		//$this->model->addPrenotazioneSemplice(2,5);
-		$prova2 = $this->model->getPrenotazione(5);
-		$prova3 = $this->model->getPrenotazioneDistinta(5);
-		$prova4 = $this->model->addPrenotazioneCompleta(5,1,3,5);
+		$prova = $this->model->findId('aurelio99819@gmail.com');
+		$prova2 = $this->model->getUserVerified($prova->id);
+		$prova_password = $prova2->password;
 		require APP . 'view/user/test.php';
 	}
 
