@@ -430,4 +430,71 @@ class Model
 		$query->execute();
 		return $query->fetchAll();
 	}
+
+	public function updateNome($nome, $id)
+	{
+		$sql = 'UPDATE informazioni
+				SET nome = :nome WHERE id = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':nome'=>$nome, ':id'=>$id);
+		$query->execute($parameters);
+	}
+
+	public function updateCognome($cognome, $id)
+	{
+		$sql = 'UPDATE informazioni
+				SET cognome = :cognome WHERE id = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':cognome'=>$cognome, ':id'=>$id);
+		$query->execute($parameters);
+	}
+
+	public function updateDataNascita($data, $id)
+	{
+		$sql = 'UPDATE informazioni
+				SET data_nascita = :data WHERE id = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':data'=>$data, ':id'=>$id);
+		$query->execute($parameters);
+	}
+
+	public function updateEmail($email, $id)
+	{
+		$sql = 'UPDATE user
+				SET email = :email WHERE id = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':email'=>$email, ':id'=>$id);
+		$query->execute($parameters);
+		$sql = 'UPDATE user
+				SET is_verified = \'F\' WHERE id = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':id'=>$id);	
+		$query->execute($parameters);
+		$casual = rand();
+		$sql = 'UPDATE user
+				SET casual_number = :casual WHERE id = :id';
+		$query = $this->db->prepare($sql);
+		$parameters = array(':casual'=>$casual, ':id'=>$id);
+		$query->execute($parameters);
+		$mail = new PHPMailer;
+		$mail->isSMTP();
+		$mail->Host = 'smtp.gmail.com';
+		$mail->SMTPAuth = true;
+		$mail->Username = 'prova.tesina.2017@gmail.com';
+		$mail->Password = 'inzaghi9';
+		$mail->SMTPSecure = 'tls';
+		$mail->Port = 587;
+		$mail->setFrom('prova.tesina.2017@gmail.com', 'JustOrder');
+		$mail->addAddress($email);
+		$mail->isHTML(true);
+
+		$bodyContent = '<h1>http://localhost:8888/progetti/provaMail/index.php?id=5</h1>';
+
+		$contenuto = '<h1>' . URL . 'user/verify/' . $id . '/' . $casual . '</h1>';
+
+		$mail->Subject = 'Email da JustOrder';
+		$mail->Body    = $contenuto;
+		$mail->send();
+		
+	}
 }

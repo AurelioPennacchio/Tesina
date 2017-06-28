@@ -181,6 +181,29 @@ class User extends Controller
 		}
 	}
 
+	public function modifica()
+	{
+		session_start();
+		if(isset($_SESSION['id'])){
+			require APP .'view/user/menu.php';
+			require APP .'view/user/modifica.php';
+		}
+		else{
+			header('location:' . URL . 'user/home');
+		}
+	}
+
+	public function modifica_reale()
+	{
+		session_start();
+		if(isset($_SESSION['id'])){
+			require APP .'view/user/modifica_reale.php';
+		}
+		else{
+			header('location:' . URL . 'user/home');
+		}
+	}
+
 	/**
 	** Funzione che permette di svolgere i test
 	** dei metodi presenti nel model

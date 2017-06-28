@@ -3,6 +3,9 @@
 				<div class="col s12">
 					<h3 class="center-align">Le tue info</h3>
 				</div>
+				<div class="col s12">
+					<a class="waves-effect waves-light btn center" href="<?php echo URL; ?>user/modifica"><i class="material-icons right">create</i>Modifica</a>
+				</div>
 			</div>
 
 			<div class="row">
